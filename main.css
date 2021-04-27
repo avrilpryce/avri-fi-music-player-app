@@ -63,4 +63,21 @@ body {
     display: block;
 }
 
+.song-details {
+    text-align: center;
+    margin-bottom: 30px;
+}
 
+.song-details h2 {
+       font-size: 24px;
+       font-weight: 600;
+       color: #313131;
+       margin-bottom: 5px;
+}
+
+.song-details h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #888;
+    margin-bottom: 5px;
+}
