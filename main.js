@@ -9,6 +9,9 @@ window.onload = () => {
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
 
+    console.log(playBtn);
+    console.log(songTitle);
+
     const audioPlayer = document.getElementById('music-player');
     
     let currentSongIndex;
@@ -39,7 +42,9 @@ window.onload = () => {
             song_path:'music/joystock-oceanic-drift.mp3',
             img_path: 'images/oceanic-drift.jpeg'
         }
-    ]
+    ];
+
+    playBtn.addEventListener('click', TogglePlaySong);
 
     InitPlayer();
 
@@ -59,4 +64,17 @@ window.onload = () => {
         songNextUp.innerText = `${songs[nextSongIndex].title} by ${songs[nextSongIndex].artist}`;
         audioPlayer.src = song_path;
     };
+
+    function TogglePlaySong () {
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            playIcon.classList.remove('fa-play');
+            playIcon.classList.add('fa-pause');
+        } else {
+            audioPlayer.play();
+            playIcon.classList.add('fa-play');
+            playIcon.classList.remove('fa-pause');
+        };
+    };
+
 };
