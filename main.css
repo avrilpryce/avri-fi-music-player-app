@@ -81,3 +81,51 @@ body {
     color: #888;
     margin-bottom: 5px;
 }
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.player-controls .play-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #FE4880;
+    color: #FFF;
+    margin: 0px 30px;
+
+    border: none;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+
+    box-shadow: 0px 6px 12px rgba(254, 72, 128, 0.6);
+    transition: 0.4s;
+}
+
+.player-controls .play-btn:hover {
+    box-shadow: 0px 8px 16px rgba(254, 72, 128, 0.8);
+}
+
+
+.player-controls .skip-btn {
+    background: none;
+    border: none;
+    outline: none;
+    appearance: none;
+
+    cursor: pointer;
+    color: #ccc;
+    transition: 0.4s;
+}
+
+
+.player-controls .skip-btn:hover {
+    color: #888
+}
