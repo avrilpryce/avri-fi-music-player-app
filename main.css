@@ -141,3 +141,11 @@ body {
     font-weight: 400;
     font-style: italic;
 }
+
+@media (max-width: 414px) {
+    .player {
+        min-height: 100vh;
+        border-radius: 0px;
+        padding: 75px 30px;
+    }
+}
