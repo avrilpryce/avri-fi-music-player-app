@@ -39,11 +39,28 @@ body {
     margin-bottom: 50px;
 
     background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('./images/default-image.jpeg');
+
 
 }
 
+.song-img:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    border: 2px solid #EEE;
+    border-radius: 50%;
+}
 .song-img:after {
     content: '';
     padding-top: 100%;
     display: block;
 }
+
+
