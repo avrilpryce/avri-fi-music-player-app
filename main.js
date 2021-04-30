@@ -8,10 +8,7 @@ window.onload = () => {
     const playIcon = document.getElementById('play-icon');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
-
-    console.log(playBtn);
-    console.log(songTitle);
-
+    
     const audioPlayer = document.getElementById('music-player');
     
     let currentSongIndex;
@@ -57,21 +54,21 @@ window.onload = () => {
     function UpdatePlayer() {
         let song = songs[currentSongIndex];
 
-        songImg.style = `background-image: url("${song.image_path}")`;
+        songImg.style = `background-image: url("${song.img_path}")`;
         songTitle.innerText = song.title;
         songArtist.innerText = song.artist;
 
         songNextUp.innerText = `${songs[nextSongIndex].title} by ${songs[nextSongIndex].artist}`;
-        audioPlayer.src = song_path;
+        audioPlayer.src =   song.song_path;
     };
 
     function TogglePlaySong () {
         if (audioPlayer.paused) {
             audioPlayer.play();
-            playIcon.classList.remove('fa-play');
             playIcon.classList.add('fa-pause');
+            playIcon.classList.remove('fa-play');
         } else {
-            audioPlayer.play();
+            audioPlayer.pause();
             playIcon.classList.add('fa-play');
             playIcon.classList.remove('fa-pause');
         };
