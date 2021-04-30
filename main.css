@@ -29,7 +29,6 @@ body {
     position: relative;
     display: block;
     margin: 0 auto;
-    background-color: #FE4880;
     
     width: 200px;
     max-width: 100%;
@@ -43,7 +42,7 @@ body {
     background-repeat: no-repeat;
     background-image: url('images/day-one.jpeg');
 
-
+    transition: 0.4s;
 }
 
 .song-img:before {
