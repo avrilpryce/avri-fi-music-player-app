@@ -42,6 +42,8 @@ window.onload = () => {
     ];
 
     playBtn.addEventListener('click', TogglePlaySong);
+    nextBtn.addEventListener('click', () => ChangeSong()); // Why the arrow function here?
+    prevBtn.addEventListener('click', () => ChangeSong(false));
 
     InitPlayer();
 
@@ -72,6 +74,32 @@ window.onload = () => {
             playIcon.classList.add('fa-play');
             playIcon.classList.remove('fa-pause');
         };
+    };
+    function ChangeSong (next = true) {
+        if (next) {
+            currentSongIndex++;
+            nextSongIndex = currentSongIndex + 1;
+
+            if (currentSongIndex > songs.length - 1) {
+                currentSongIndex = 0;
+                nextSongIndex = currentSongIndex + 1;
+            };
+
+            if (nextSongIndex > songs.length - 1) {
+                nextSongIndex = 0;
+            };
+        } else {
+            currentSongIndex--;
+            nextSongIndex = currentSongIndex + 1;
+
+            if (currentSongIndex < 0) {
+                currentSongIndex = songs.length - 1;
+                nextSongIndex = 0;
+            };
+        };
+        
+        UpdatePlayer();
+        TogglePlaySong();
     };
 
 };
