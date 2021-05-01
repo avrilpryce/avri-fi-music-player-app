@@ -8,6 +8,10 @@ window.onload = () => {
     const playIcon = document.getElementById('play-icon');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
+
+    const shuffleBtn = document.getElementById('shuffle-btn');
+    const loopBtn = document.getElementById('loop-btn');
+
     
     const audioPlayer = document.getElementById('music-player');
     
@@ -42,8 +46,9 @@ window.onload = () => {
     ];
 
     playBtn.addEventListener('click', TogglePlaySong);
-    nextBtn.addEventListener('click', () => ChangeSong()); // Why the arrow function here?
+    nextBtn.addEventListener('click', () => ChangeSong());
     prevBtn.addEventListener('click', () => ChangeSong(false));
+    shuffleBtn.addEventListener('click', () => shuffleSong());
 
     InitPlayer();
 
@@ -51,7 +56,7 @@ window.onload = () => {
         currentSongIndex = 0;
         nextSongIndex = currentSongIndex + 1;
         UpdatePlayer();
-    };
+    }
 
     function UpdatePlayer() {
         let song = songs[currentSongIndex];
@@ -59,10 +64,14 @@ window.onload = () => {
         songImg.style = `background-image: url("${song.img_path}")`;
         songTitle.innerText = song.title;
         songArtist.innerText = song.artist;
-
-        songNextUp.innerText = `${songs[nextSongIndex].title} by ${songs[nextSongIndex].artist}`;
         audioPlayer.src =   song.song_path;
-    };
+
+        updateNextSong();
+    }
+
+    function updateNextSong() {
+        songNextUp.innerText = `${songs[nextSongIndex].title} by ${songs[nextSongIndex].artist}`;
+    }
 
     function TogglePlaySong () {
         if (audioPlayer.paused) {
@@ -73,8 +82,9 @@ window.onload = () => {
             audioPlayer.pause();
             playIcon.classList.add('fa-play');
             playIcon.classList.remove('fa-pause');
-        };
-    };
+        }
+    }
+
     function ChangeSong (next = true) {
         if (next) {
             currentSongIndex++;
@@ -83,11 +93,11 @@ window.onload = () => {
             if (currentSongIndex > songs.length - 1) {
                 currentSongIndex = 0;
                 nextSongIndex = currentSongIndex + 1;
-            };
+            }
 
             if (nextSongIndex > songs.length - 1) {
                 nextSongIndex = 0;
-            };
+            }
         } else {
             currentSongIndex--;
             nextSongIndex = currentSongIndex + 1;
@@ -95,11 +105,28 @@ window.onload = () => {
             if (currentSongIndex < 0) {
                 currentSongIndex = songs.length - 1;
                 nextSongIndex = 0;
-            };
-        };
+            }
+        }
         
         UpdatePlayer();
         TogglePlaySong();
-    };
+    }
 
-};
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            let temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+    }
+
+    function shuffleSong () {
+        shuffleArray(songs);
+        console.log(songs);
+    }
+
+    // Make a function that randomly produces a index number within the length of the song array
+    // add event listener on shuffle button
+
+}
