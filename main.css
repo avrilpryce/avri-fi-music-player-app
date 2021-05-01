@@ -125,6 +125,10 @@ body {
     transition: 0.4s;
 }
 
+.active-btn {
+    color:#FE4880 !important; 
+}
+
 
 .player-controls .skip-btn:hover {
     color: #888

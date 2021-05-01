@@ -23,25 +23,29 @@ window.onload = () => {
             title: 'Day One',
             artist: 'Joy Stock',
             song_path:'music/joystock-day-one.mp3',
-            img_path: 'images/day-one.jpeg' 
+            img_path: 'images/day-one.jpeg',
+            original_index: 0,
         },
         {
             title: 'Shiny New Kicks',
             artist: 'Joy Stock',
             song_path:'music/joystock-shiny-new-kicks.mp3',
-            img_path: 'images/shiny-new-kicks.jpeg'
+            img_path: 'images/shiny-new-kicks.jpeg',
+            original_index: 1,
         },
         {
             title: 'Downtown Delight',
             artist: 'Joy Stock',
             song_path:'music/joystock-downtown-delight.mp3',
-            img_path: 'images/downtown-delight.jpeg'
+            img_path: 'images/downtown-delight.jpeg',
+            original_index: 2,
         },
         {
             title: 'Ocean Drift',
             artist: 'Joy Stock',
             song_path:'music/joystock-oceanic-drift.mp3',
-            img_path: 'images/oceanic-drift.jpeg'
+            img_path: 'images/oceanic-drift.jpeg',
+            original_index: 3,
         }
     ];
 
@@ -49,6 +53,8 @@ window.onload = () => {
     nextBtn.addEventListener('click', () => ChangeSong());
     prevBtn.addEventListener('click', () => ChangeSong(false));
     shuffleBtn.addEventListener('click', () => shuffleSong());
+    loopBtn.addEventListener('click', () => loopSong())
+
 
     InitPlayer();
 
@@ -122,9 +128,32 @@ window.onload = () => {
     }
 
     function shuffleSong () {
-        shuffleArray(songs);
-        console.log(songs);
+        shuffleBtn.classList.toggle('active-btn');
+        
+        if (shuffleBtn.classList.contains('active-btn') === true) {
+            shuffleArray(songs);
+            console.log(songs);
+        } else {
+            songs.sort(function (a, b) {
+                return a.original_index - b.original_index;
+            });
+            console.log(songs);
+        }
     }
+
+    function loopSong () {
+        loopBtn.classList.toggle('active-btn');
+        
+        if (loopBtn.classList.contains('active-btn') === true) {
+            // Enter code below here
+           
+        } else {
+            // Enter code below here
+            
+        }    
+    }
+
+
 
     // Make a function that randomly produces a index number within the length of the song array
     // add event listener on shuffle button
