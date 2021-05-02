@@ -12,8 +12,9 @@ window.onload = () => {
     const shuffleBtn = document.getElementById('shuffle-btn');
     const loopBtn = document.getElementById('loop-btn');
     
-    
-    const audioPlayer = document.getElementById('music-player');
+    const musicPlayer = document.getElementById('music-player');
+    const progressBar = document.getElementById('progress-bar');
+    const progressContainer = document.getElementById('progress-container');
     
     let currentSongIndex;
     let nextSongIndex;
@@ -55,6 +56,7 @@ window.onload = () => {
     prevBtn.addEventListener('click', () => ChangeSong(false));
     shuffleBtn.addEventListener('click', () => shuffleSong());
     loopBtn.addEventListener('click', () => repeatPlaylist())
+    musicPlayer.addEventListener('timeupdate', updateProgress);
     
     
     InitPlayer();
@@ -71,7 +73,7 @@ window.onload = () => {
         songImg.style = `background-image: url("${song.img_path}")`;
         songTitle.innerText = song.title;
         songArtist.innerText = song.artist;
-        audioPlayer.src =   song.song_path;
+        musicPlayer.src =   song.song_path;
 
         updateNextSong();
     }
@@ -81,12 +83,12 @@ window.onload = () => {
     }
 
     function TogglePlaySong () {
-        if (audioPlayer.paused) {
-            audioPlayer.play();
+        if (musicPlayer.paused) {
+            musicPlayer.play();
             playIcon.classList.add('fa-pause');
             playIcon.classList.remove('fa-play');
         } else {
-            audioPlayer.pause();
+            musicPlayer.pause();
             playIcon.classList.add('fa-play');
             playIcon.classList.remove('fa-pause');
         }
@@ -167,6 +169,12 @@ window.onload = () => {
     // function repeatSong () {
 
     // }
+
+    function updateProgress(event) {
+        const { duration, currentTime } = event.srcElement;
+        const progressPercent = (currentTime / duration) * 100;
+        progressBar.style.width = `${progressPercent}%`;
+    }
 
 
 
