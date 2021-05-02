@@ -50,13 +50,14 @@ window.onload = () => {
         }
     ];
 
-
+    // Event Listeners
     playBtn.addEventListener('click', TogglePlaySong);
     nextBtn.addEventListener('click', () => ChangeSong());
     prevBtn.addEventListener('click', () => ChangeSong(false));
     shuffleBtn.addEventListener('click', () => shuffleSong());
     loopBtn.addEventListener('click', () => repeatPlaylist())
     musicPlayer.addEventListener('timeupdate', updateProgress);
+    progressContainer.addEventListener('click', setProgress);
     
     
     InitPlayer();
@@ -174,6 +175,14 @@ window.onload = () => {
         const { duration, currentTime } = event.srcElement;
         const progressPercent = (currentTime / duration) * 100;
         progressBar.style.width = `${progressPercent}%`;
+    }
+
+    function setProgress(event) {
+        const width = this.clientWidth;
+        const clickX = event.offsetX;
+        const duration = musicPlayer.duration;
+      
+        musicPlayer.currentTime = (clickX / width) * duration;
     }
 
 
