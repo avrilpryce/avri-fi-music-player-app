@@ -3,21 +3,21 @@ window.onload = () => {
     const songTitle = document.getElementById('song-title');
     const songArtist = document.getElementById('song-artist');
     const songNextUp = document.getElementById('song-next-up');
-
+    
     const playBtn = document.getElementById('play-btn');
     const playIcon = document.getElementById('play-icon');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
-
+    
     const shuffleBtn = document.getElementById('shuffle-btn');
     const loopBtn = document.getElementById('loop-btn');
-
+    
     
     const audioPlayer = document.getElementById('music-player');
     
     let currentSongIndex;
     let nextSongIndex;
-
+    
     let songs = [
         {
             title: 'Day One',
@@ -49,13 +49,14 @@ window.onload = () => {
         }
     ];
 
+
     playBtn.addEventListener('click', TogglePlaySong);
     nextBtn.addEventListener('click', () => ChangeSong());
     prevBtn.addEventListener('click', () => ChangeSong(false));
     shuffleBtn.addEventListener('click', () => shuffleSong());
-    loopBtn.addEventListener('click', () => loopSong())
-
-
+    loopBtn.addEventListener('click', () => repeatPlaylist())
+    
+    
     InitPlayer();
 
     function InitPlayer () {
@@ -132,16 +133,25 @@ window.onload = () => {
         
         if (shuffleBtn.classList.contains('active-btn') === true) {
             shuffleArray(songs);
-            console.log(songs);
         } else {
             songs.sort(function (a, b) {
                 return a.original_index - b.original_index;
             });
-            console.log(songs);
         }
     }
 
-    function loopSong () {
+
+    /* repeatPlaylist function pseudo code
+        - on click one repeat playlist
+            - current code
+        - on click two repeat song
+            - Start same track again when it ends
+        - on third click return to original state
+
+    */
+
+
+    function repeatPlaylist () {
         loopBtn.classList.toggle('active-btn');
         
         if (loopBtn.classList.contains('active-btn') === true) {
@@ -149,13 +159,18 @@ window.onload = () => {
            
         } else {
             // Enter code below here
-            
+
         }    
     }
 
 
+    // function repeatSong () {
 
-    // Make a function that randomly produces a index number within the length of the song array
-    // add event listener on shuffle button
+    // }
+
+
+
+
+
 
 }

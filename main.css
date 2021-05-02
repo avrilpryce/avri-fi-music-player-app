@@ -153,3 +153,22 @@ body {
         padding: 75px 30px;
     }
 }
+
+
+#progress-container {
+    background-color:#ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    margin:  10px 0;
+    margin-bottom: 30px;
+    height: 4px;
+    width: 100%;
+}
+
+#progress-bar {
+    background-color:#FE4880;
+    border-radius: 5px;
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s linear;
+}
