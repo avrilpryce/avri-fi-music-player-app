@@ -118,7 +118,7 @@ body {
     border: none;
     outline: none;
     appearance: none;
-    margin:auto;
+    margin: auto;
 
     cursor: pointer;
     color: #ccc;
@@ -130,7 +130,7 @@ body {
 }
 
 
-.player-controls .skip-btn:hover {
+.player-controls .control-btn:hover {
     color: #888
 }
 
