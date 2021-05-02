@@ -52,12 +52,15 @@ window.onload = () => {
 
     // Event Listeners
     playBtn.addEventListener('click', TogglePlaySong);
-    nextBtn.addEventListener('click', () => ChangeSong());
+    nextBtn.addEventListener('click', ChangeSong);
     prevBtn.addEventListener('click', () => ChangeSong(false));
-    shuffleBtn.addEventListener('click', () => shuffleSong());
-    loopBtn.addEventListener('click', () => repeatPlaylist())
+    shuffleBtn.addEventListener('click', shuffleSong);
+    loopBtn.addEventListener('click', repeatPlaylist)
     musicPlayer.addEventListener('timeupdate', updateProgress);
     progressContainer.addEventListener('click', setProgress);
+    musicPlayer.addEventListener('ended', ChangeSong);
+    // musicPlayer.addEventListener('timeupdate',DurTime);
+    
     
     
     InitPlayer();
