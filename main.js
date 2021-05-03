@@ -63,6 +63,7 @@ window.onload = () => {
     songProgessContainer.addEventListener('click', setProgress);
     musicPlayer.addEventListener('ended', ChangeSong);
     volumeSlider.addEventListener('mousemove', changeVolume);
+    volumeSlider.addEventListener('mousemove', changeVolumeProgressColor)
     // musicPlayer.addEventListener('timeupdate',DurTime);
     
     
@@ -194,6 +195,12 @@ window.onload = () => {
 
     function changeVolume () {
         musicPlayer.volume = volumeSlider.value / 100;
+    }
+
+    function changeVolumeProgressColor () {
+        const x = volumeSlider.value;
+        const progressColor = `linear-gradient(90deg, #FE4880 ${x}%, #ccc ${x}%)`;
+        volumeSlider.style.background = progressColor;
     }
 
 
