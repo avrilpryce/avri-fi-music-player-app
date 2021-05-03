@@ -66,7 +66,7 @@ window.onload = () => {
     songProgessContainer.addEventListener('click', setProgress);
     musicPlayer.addEventListener('ended', ChangeSong);
     volumeSlider.addEventListener('mousemove', changeVolume);
-    volumeSlider.addEventListener('mousemove', changeVolumeProgressColor)
+    volumeSlider.addEventListener('input', changeVolumeProgressColor)
     // musicPlayer.addEventListener('timeupdate',DurTime);
     
     
