@@ -221,8 +221,9 @@ body {
  #current-time {
     justify-content: space-between;
     display: flex;
+    margin-bottom: 20px;
  }
- 
+
  #current-time span {
     font-size: 14px;
     font-weight: 500;

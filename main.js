@@ -18,6 +18,9 @@ window.onload = () => {
     const songProgessBar = document.getElementById('song-progress-bar');
     const songProgessContainer = document.getElementById('song-progress-container');
     const volumeSlider = document.getElementById('volume-slider');
+
+    const currentTimeEl = document.getElementById('current-time-text');
+    const durationTimeEl = document.getElementById('duration-time-text');
     
     let currentSongIndex;
     let nextSongIndex;
@@ -59,7 +62,7 @@ window.onload = () => {
     prevBtn.addEventListener('click', () => ChangeSong(false));
     shuffleBtn.addEventListener('click', shuffleSong);
     loopBtn.addEventListener('click', repeatPlaylist)
-    musicPlayer.addEventListener('timeupdate', updateProgress);
+    musicPlayer.addEventListener('timeupdate', updateTime);
     songProgessContainer.addEventListener('click', setProgress);
     musicPlayer.addEventListener('ended', ChangeSong);
     volumeSlider.addEventListener('mousemove', changeVolume);
@@ -179,10 +182,31 @@ window.onload = () => {
 
     // }
 
-    function updateProgress(event) {
+    function updateTime(event) {
         const { duration, currentTime } = event.srcElement;
-        const progressPercent = (currentTime / duration) * 100;
-        songProgessBar.style.width = `${progressPercent}%`;
+
+        if(duration) {
+            const progressPercent = (currentTime / duration) * 100;
+            songProgessBar.style.width = `${progressPercent}%`;
+
+            let currentTimeMins = Math.floor(currentTime / 60);
+            let currentTimeSecs = Math.floor(currentTime - currentTimeMins * 60);
+            let durationTimeMins = Math.floor(duration / 60);
+            let durationTimeSecs = Math.floor(duration - durationTimeMins * 60);
+
+            if(currentTimeSecs < 10){ currentTimeSecs = '0' + currentTimeSecs }
+            if(durationTimeSecs < 10){ durationTimeSecs = '0' + durationTimeSecs }
+            // if(currentTimeMins < 10){ currentTimeMins = '0' + currentTimeMins }
+            // if(durationTimeMins < 10){ durationTimeMins = '0' + durationTimeMins }
+
+            currentTimeEl.innerHTML = currentTimeMins + ':' + currentTimeSecs;
+            durationTimeEl.innerHTML = durationTimeMins + ':' + durationTimeSecs;
+        } else {
+            currentTimeEl.innerHTML = '0:00'
+            durationTimeEl.innerHTML = '0:00'
+        }
+
+
     }
 
     function setProgress(event) {
