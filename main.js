@@ -62,6 +62,7 @@ window.onload = () => {
     musicPlayer.addEventListener('timeupdate', updateProgress);
     songProgessContainer.addEventListener('click', setProgress);
     musicPlayer.addEventListener('ended', ChangeSong);
+    volumeSlider.addEventListener('mousemove', changeVolume);
     // musicPlayer.addEventListener('timeupdate',DurTime);
     
     
@@ -189,6 +190,10 @@ window.onload = () => {
         const duration = musicPlayer.duration;
       
         musicPlayer.currentTime = (clickX / width) * duration;
+    }
+
+    function changeVolume () {
+        musicPlayer.volume = volumeSlider.value / 100;
     }
 
 
