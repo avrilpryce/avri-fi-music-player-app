@@ -22,6 +22,10 @@
             <div id="song-progress-container"class="progress-container">
                 <div id="song-progress-bar"class="progress-bar"></div>
             </div>
+            <div id="current-time">
+                <span id="current-time-text">00:00</span>
+                <span id="duration-time-text">00:00</span>
+            </div>
             <div class="player-controls">
                 <button id="shuffle-btn" class="control-btn"><i class="fas fa-random fa-lg" aria-hidden="true"></i></button>
                 <button id="prev-btn" class="control-btn"><i class="fas fa-backward fa-lg"></i></button>
@@ -29,20 +33,11 @@
                 <button id="next-btn" class="control-btn"><i class="fas fa-forward fa-lg"></i></button>
                 <button id="loop-btn" class="control-btn"><i class="fas fa-retweet fa-lg" aria-hidden="true"></i></i></button>
             </div>
-
             <div id="volume-container">
                 <i id="volume-off-btn" class="volume-control-icon fas fa-volume-off"></i>
                 <input type="range" class="slider" id="volume-slider" min="0" max="100" value="100" step="1">
                 <i id="volume-up-btn" class="volume-control-icon fas fa-volume-up"></i>
             </div>
-
-            <!-- <div class="volume-controls player-controls">
-                <button id="volume-off-btn" class="control-btn"><i class="fas fa-volume-off"></i></button>
-                <div id="volume-control-container" class="progress-container">
-                    <div id="volume-control-bar" class="progress-bar"></div>
-                </div>
-                <button id="volume-up-btn" class="control-btn"><i class="fas fa-volume-up"></i></button>
-            </div>     -->
             <div class="next-up">
                 <p>Next up: <span id="song-next-up">Downtown Delight by Joy Stock</span></p>
             </div>
