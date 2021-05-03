@@ -155,7 +155,7 @@ body {
 }
 
 
-#progress-container {
+.progress-container {
     background-color:#ccc;
     border-radius: 5px;
     cursor: pointer;
@@ -165,10 +165,31 @@ body {
     width: 100%;
 }
 
-#progress-bar {
+.progress-bar {
     background-color:#FE4880;
     border-radius: 5px;
     height: 100%;
     width: 0%;
     transition: width 0.1s linear;
 }
+
+#volume-container{
+    position: relative;
+    width: 100%;
+    height: 15px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.volume-control-icon{
+    background: none;
+    border: none;
+    outline: none;
+    appearance: none;
+    margin: auto;
+    color: #ccc;
+}
+

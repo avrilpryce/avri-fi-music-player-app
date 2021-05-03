@@ -1,4 +1,6 @@
 window.onload = () => {
+
+    // Object References
     const songImg = document.getElementById('song-image');
     const songTitle = document.getElementById('song-title');
     const songArtist = document.getElementById('song-artist');
@@ -13,8 +15,9 @@ window.onload = () => {
     const loopBtn = document.getElementById('loop-btn');
     
     const musicPlayer = document.getElementById('music-player');
-    const progressBar = document.getElementById('progress-bar');
-    const progressContainer = document.getElementById('progress-container');
+    const songProgessBar = document.getElementById('song-progress-bar');
+    const songProgessContainer = document.getElementById('song-progress-container');
+    const volumeSlider = document.getElementById('volume-slider');
     
     let currentSongIndex;
     let nextSongIndex;
@@ -57,7 +60,7 @@ window.onload = () => {
     shuffleBtn.addEventListener('click', shuffleSong);
     loopBtn.addEventListener('click', repeatPlaylist)
     musicPlayer.addEventListener('timeupdate', updateProgress);
-    progressContainer.addEventListener('click', setProgress);
+    songProgessContainer.addEventListener('click', setProgress);
     musicPlayer.addEventListener('ended', ChangeSong);
     // musicPlayer.addEventListener('timeupdate',DurTime);
     
@@ -177,7 +180,7 @@ window.onload = () => {
     function updateProgress(event) {
         const { duration, currentTime } = event.srcElement;
         const progressPercent = (currentTime / duration) * 100;
-        progressBar.style.width = `${progressPercent}%`;
+        songProgessBar.style.width = `${progressPercent}%`;
     }
 
     function setProgress(event) {
