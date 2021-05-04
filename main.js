@@ -13,6 +13,7 @@ window.onload = () => {
     
     const shuffleBtn = document.getElementById('shuffle-btn');
     const loopBtn = document.getElementById('loop-btn');
+    const loopBtnIcon = document.getElementById('loop-btn-icon');
     
     const musicPlayer = document.getElementById('music-player');
     const songProgessBar = document.getElementById('song-progress-bar');
@@ -58,13 +59,13 @@ window.onload = () => {
 
     // Event Listeners
     playBtn.addEventListener('click', TogglePlaySong);
-    nextBtn.addEventListener('click', ChangeSong);
-    prevBtn.addEventListener('click', () => ChangeSong(false));
+    nextBtn.addEventListener('click', skipSong);
+    prevBtn.addEventListener('click', () => skipSong(false));
     shuffleBtn.addEventListener('click', shuffleSong);
-    loopBtn.addEventListener('click', repeatPlaylist)
+    loopBtn.addEventListener('click', repeatAudio)
     musicPlayer.addEventListener('timeupdate', updateTime);
     songProgessContainer.addEventListener('click', setProgress);
-    musicPlayer.addEventListener('ended', ChangeSong);
+    musicPlayer.addEventListener('ended', nextSong);
     volumeSlider.addEventListener('mousemove', changeVolume);
     volumeSlider.addEventListener('input', changeVolumeProgressColor)
     // musicPlayer.addEventListener('timeupdate',DurTime);
@@ -104,7 +105,34 @@ window.onload = () => {
         }
     }
 
-    function ChangeSong (next = true) {
+    function nextSong (next = true) {
+        if (next) {
+            currentSongIndex++;
+            nextSongIndex = currentSongIndex + 1;
+
+            if (currentSongIndex > songs.length - 1 &&  loopBtnIcon.title === 'repeat-playlist') {
+                currentSongIndex = 0;
+                nextSongIndex = currentSongIndex + 1;
+            }
+
+            if (nextSongIndex > songs.length - 1  &&  loopBtnIcon.title === 'repeat-playlist') {
+                nextSongIndex = 0;
+            }
+        } else {
+            currentSongIndex--;
+            nextSongIndex = currentSongIndex + 1;
+
+            if (currentSongIndex < 0) {
+                currentSongIndex = songs.length - 1;
+                nextSongIndex = 0;
+            }
+        }
+        
+        UpdatePlayer();
+        TogglePlaySong();
+    }
+
+    function skipSong (next = true) {
         if (next) {
             currentSongIndex++;
             nextSongIndex = currentSongIndex + 1;
@@ -131,6 +159,16 @@ window.onload = () => {
         TogglePlaySong();
     }
 
+
+
+
+
+    
+
+
+
+
+
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));
@@ -153,7 +191,7 @@ window.onload = () => {
     }
 
 
-    /* repeatPlaylist function pseudo code
+    /* repeatAudio function pseudo code
         - on click one repeat playlist
             - current code
         - on click two repeat song
@@ -162,17 +200,32 @@ window.onload = () => {
 
     */
 
+        // add loop title and then change it                            
 
-    function repeatPlaylist () {
-        loopBtn.classList.toggle('active-btn');
+    function repeatAudio () {
+
+        const repeatIconHTML = '&#xe040;'
+        const repeatOneIconHTML = '&#xe041;'
         
-        if (loopBtn.classList.contains('active-btn') === true) {
-            // Enter code below here
-           
-        } else {
-            // Enter code below here
+        switch (loopBtnIcon.title) {
+            case 'repeat-off':
+                loopBtn.classList.add('active-btn');
+                loopBtnIcon.title = 'repeat-playlist';
+                break;
+            case 'repeat-playlist':
+                musicPlayer.loop = true;
+                loopBtnIcon.innerHTML = repeatOneIconHTML;
+                loopBtnIcon.title = 'repeat-song';
+                break;
+            case 'repeat-song':
+                musicPlayer.loop = false;
+                loopBtn.classList.remove('active-btn');
+                loopBtnIcon.innerHTML = repeatIconHTML;
+                loopBtnIcon.title = 'repeat-off';
+                break;
+        }
+ 
 
-        }    
     }
 
 
