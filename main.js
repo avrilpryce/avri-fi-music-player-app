@@ -1,7 +1,9 @@
 window.onload = () => {
 
     // Object References
-    const songImg = document.getElementById('song-image');
+
+    const playerContainer = document.getElementById('player-container');
+
     const songTitle = document.getElementById('song-title');
     const songArtist = document.getElementById('song-artist');
     const songNextUp = document.getElementById('song-next-up');
@@ -83,7 +85,7 @@ window.onload = () => {
     function UpdatePlayer() {
         let song = songs[currentSongIndex];
 
-        songImg.style = `background-image: url("${song.img_path}")`;
+        playerContainer.style = `background-image: url("${song.img_path}")`;
         songTitle.innerText = song.title;
         songArtist.innerText = song.artist;
         musicPlayer.src =   song.song_path;
@@ -158,15 +160,6 @@ window.onload = () => {
         UpdatePlayer();
         TogglePlaySong();
     }
-
-
-
-
-
-    
-
-
-
 
 
     function shuffleArray(array) {

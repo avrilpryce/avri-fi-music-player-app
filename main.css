@@ -17,12 +17,22 @@ body {
 }
 
 .player {
-    background-color: #FFF;
-    padding: 100px 50px;
+    background-size: cover;
     width: 414px;
     max-width: 100%;
     border-radius: 16px;
     box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
+    background-color: black;
+    background-image: url('https://images.unsplash.com/photo-1588894181387-939771976bdd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=606&q=80');
+}
+
+.player .overlay {
+    padding: 100px 50px;
+    width: 414px;
+    max-width: 100%;
+    border-radius: 16px;
+    background-size: cover;
+    background-image: linear-gradient(360deg, black, transparent);
 }
 
 .song-img {
