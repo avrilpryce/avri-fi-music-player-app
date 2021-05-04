@@ -97,12 +97,10 @@ window.onload = () => {
     function TogglePlaySong () {
         if (musicPlayer.paused) {
             musicPlayer.play();
-            playIcon.classList.add('fa-pause');
-            playIcon.classList.remove('fa-play');
+            playIcon.innerHTML = '&#xe034;'
         } else {
             musicPlayer.pause();
-            playIcon.classList.add('fa-play');
-            playIcon.classList.remove('fa-pause');
+            playIcon.innerHTML = '&#xe037;'
         }
     }
 
