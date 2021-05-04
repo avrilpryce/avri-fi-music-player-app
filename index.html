@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Music App</title>
 </head>
 <body>
@@ -27,16 +28,17 @@
                 <span id="duration-time-text">00:00</span>
             </div>
             <div class="player-controls">
-                <button id="shuffle-btn" class="control-btn"><i class="fas fa-random fa-lg" aria-hidden="true"></i></button>
-                <button id="prev-btn" class="control-btn"><i class="fas fa-backward fa-lg"></i></button>
-                <button id="play-btn" class="play-btn"><i id="play-icon" class="fas fa-play fa-2x"></i></button>
-                <button id="next-btn" class="control-btn"><i class="fas fa-forward fa-lg"></i></button>
-                <button id="loop-btn" class="control-btn"><i class="fas fa-retweet fa-lg" aria-hidden="true"></i></i></button>
+                <button id="shuffle-btn" class="control-btn"><span class="material-icons md-24">&#xe043;</span></button>
+                <button id="prev-btn" class="control-btn"><span class="material-icons md-36">&#xe045;</span></button>
+                <button id="play-btn" class="play-btn"><span id="play-icon" class="material-icons md-48">&#xe037;</span></button>
+                <button id="next-btn" class="control-btn"><span class="material-icons md-36">&#xe044;</span></button>
+                <button id="loop-btn" class="control-btn"><span class="material-icons md-24">&#xe040;</span></button>
+                <!-- <button id="loop-btn" class="control-btn"><span class="material-icons">&#xe041;</span></button> -->
             </div>
             <div id="volume-container">
-                <i id="volume-off-btn" class="volume-control-icon fas fa-volume-off"></i>
+                <span id="volume-off-btn" class="material-icons md-24 volume-control-icon">&#xe04e;</span>
                 <input type="range" class="slider" id="volume-slider" min="0" max="100" value="100" step="1">
-                <i id="volume-up-btn" class="volume-control-icon fas fa-volume-up"></i>
+                <span id="volume-up-btn" class="material-icons md-24 volume-control-icon">&#xe050;</span>
             </div>
             <div class="next-up">
                 <p>Next up: <span id="song-next-up">Downtown Delight by Joy Stock</span></p>

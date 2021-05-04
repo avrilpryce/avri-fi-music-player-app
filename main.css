@@ -84,7 +84,7 @@ body {
 .player-controls {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 30px;
 }
 
@@ -97,7 +97,7 @@ body {
     border-radius: 50%;
     background-color: #FE4880;
     color: #FFF;
-    margin: 0px 15px;
+    margin: 0px 10px;
 
     border: none;
     outline: none;
@@ -118,12 +118,15 @@ body {
     border: none;
     outline: none;
     appearance: none;
-    margin: auto;
 
     cursor: pointer;
     color: #ccc;
     transition: 0.4s;
 }
+
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
 
 .active-btn {
     color:#FE4880 !important; 
@@ -179,7 +182,7 @@ body {
     height: 15px;
     z-index: 3;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
 }
@@ -188,8 +191,7 @@ body {
     background: none;
     border: none;
     outline: none;
-    appearance: none;
-    margin: auto;
+    appearance: none;  
     color: #ccc;
 }
  .slider {
