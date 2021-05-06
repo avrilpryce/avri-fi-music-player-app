@@ -80,14 +80,14 @@ body {
 .song-details h2 {
        font-size: 24px;
        font-weight: 600;
-       color: #313131;
+       color: #ffffff;
        margin-bottom: 5px;
 }
 
 .song-details h3 {
     font-size: 16px;
     font-weight: 500;
-    color: #888;
+    color: #ffffff;
     margin-bottom: 5px;
 }
 
@@ -99,27 +99,19 @@ body {
 }
 
 .player-controls .play-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    background-color: #FE4880;
-    color: #FFF;
-    margin: 0px 10px;
-
+    background: none;
     border: none;
     outline: none;
     appearance: none;
-    cursor: pointer;
 
-    box-shadow: 0px 6px 12px rgba(254, 72, 128, 0.6);
+    cursor: pointer;
+    color: #ffffff;
+
     transition: 0.4s;
 }
 
 .player-controls .play-btn:hover {
-    box-shadow: 0px 8px 16px rgba(254, 72, 128, 0.8);
+    transform: scale(1.1);
 }
 
 
@@ -130,13 +122,17 @@ body {
     appearance: none;
 
     cursor: pointer;
-    color: #ccc;
+    color: #c6c6c8;
+
     transition: 0.4s;
 }
 
 .material-icons.md-24 { font-size: 24px; }
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
+.material-icons.md-60 { font-size: 60px; }
+.material-icons.md-72 { font-size: 72px; }
+
 
 .active-btn {
     color:#FE4880 !important; 
@@ -144,11 +140,11 @@ body {
 
 
 .player-controls .control-btn:hover {
-    color: #888
+    color: #ffffff;
 }
 
 .next-up p {
-    color:#888;
+    color:#ffffff;
     text-align: center;
     font-weight: 700;
     font-size: 16px;
@@ -169,7 +165,7 @@ body {
 
 
 .progress-container {
-    background-color:#ccc;
+    background-color:#ffffff;
     border-radius: 5px;
     cursor: pointer;
     margin:  10px 0;
@@ -202,14 +198,14 @@ body {
     border: none;
     outline: none;
     appearance: none;  
-    color: #ccc;
+    color: #ffffff;
 }
  .slider {
      width: 80%;
      height: 4px !important;
      -webkit-appearance: none;
      border-radius: 10px;
-     background: linear-gradient(90deg,#ccc 60%,#ccc 60%);
+     background: linear-gradient(90deg,#FE4880 100%,#ffffff 60%);
      z-index: 100;
      outline: none;
  }
@@ -230,6 +226,7 @@ body {
      transform: scale(1.5);
  }
 
+
  #current-time {
     justify-content: space-between;
     display: flex;
@@ -239,5 +236,5 @@ body {
  #current-time span {
     font-size: 14px;
     font-weight: 500;
-    color: #888;
+    color: #ffffff;
  }

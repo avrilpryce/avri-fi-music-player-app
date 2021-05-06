@@ -100,10 +100,10 @@ window.onload = () => {
     function TogglePlaySong () {
         if (musicPlayer.paused) {
             musicPlayer.play();
-            playIcon.innerHTML = '&#xe034;'
+            playIcon.innerHTML = '&#xe1a2;'
         } else {
             musicPlayer.pause();
-            playIcon.innerHTML = '&#xe037;'
+            playIcon.innerHTML = '&#xe1c4;'
         }
     }
 
@@ -267,7 +267,7 @@ window.onload = () => {
 
     function changeVolumeProgressColor () {
         const x = volumeSlider.value;
-        const progressColor = `linear-gradient(90deg, #FE4880 ${x}%, #ccc ${x}%)`;
+        const progressColor = `linear-gradient(90deg, #FE4880 ${x}%, #ffffff ${x}%)`;
         volumeSlider.style.background = progressColor;
     }
 
