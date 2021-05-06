@@ -15,30 +15,32 @@
     <div class="app-wrapper">
         <div id="player-container" class="player">
             <div class="overlay">
-                <audio id="music-player"></audio>
-                <div id="song-image"class="song-img"></div>
-                <div class="song-details">
-                    <h2 id="song-title">Day One</h2>
-                    <h3 id="song-artist">Joy Stock</h3>
-                </div>
-                <div id="song-progress-container"class="progress-container">
-                    <div id="song-progress-bar"class="progress-bar"></div>
-                </div>
-                <div id="current-time">
-                    <span id="current-time-text">00:00</span>
-                    <span id="duration-time-text">00:00</span>
-                </div>
-                <div class="player-controls">
-                    <button id="shuffle-btn" class="control-btn"><span class="material-icons md-24">&#xe043;</span></button>
-                    <button id="prev-btn" class="control-btn"><span class="material-icons md-48">&#xe045;</span></button>
-                    <button id="play-btn" class="play-btn"><span id="play-icon" class="material-icons md-72">&#xe1c4;</span></button>
-                    <button id="next-btn" class="control-btn"><span class="material-icons md-48">&#xe044;</span></button>
-                    <button id="loop-btn" class="control-btn"><span id="loop-btn-icon" title="repeat-off" class="material-icons md-24">&#xe040;</span></button>
-                </div>
-                <div id="volume-container">
-                    <span id="volume-off-btn" class="material-icons md-24 volume-control-icon">&#xe04e;</span>
-                    <input type="range" class="slider" id="volume-slider" min="0" max="100" value="100" step="1">
-                    <span id="volume-up-btn" class="material-icons md-24 volume-control-icon">&#xe050;</span>
+                <div id="app-content">
+                    <audio id="music-player"></audio>
+                    <div id="song-image"class="song-img"></div>
+                    <div class="song-details">
+                        <h2 id="song-title">Day One</h2>
+                        <h3 id="song-artist">Joy Stock</h3>
+                    </div>
+                    <div id="song-progress-container"class="progress-container">
+                        <div id="song-progress-bar"class="progress-bar"></div>
+                    </div>
+                    <div id="current-time">
+                        <span id="current-time-text">00:00</span>
+                        <span id="duration-time-text">00:00</span>
+                    </div>
+                    <div class="player-controls">
+                        <button id="shuffle-btn" class="control-btn"><span class="material-icons md-24">&#xe043;</span></button>
+                        <button id="prev-btn" class="control-btn"><span class="material-icons md-48">&#xe045;</span></button>
+                        <button id="play-btn" class="play-btn"><span id="play-icon" class="material-icons md-72">&#xe1c4;</span></button>
+                        <button id="next-btn" class="control-btn"><span class="material-icons md-48">&#xe044;</span></button>
+                        <button id="loop-btn" class="control-btn"><span id="loop-btn-icon" title="repeat-off" class="material-icons md-24">&#xe040;</span></button>
+                    </div>
+                    <div id="volume-container">
+                        <span id="volume-off-btn" class="material-icons md-24 volume-control-icon">&#xe04e;</span>
+                        <input type="range" class="slider" id="volume-slider" min="0" max="100" value="100" step="1">
+                        <span id="volume-up-btn" class="material-icons md-24 volume-control-icon">&#xe050;</span>
+                    </div>
                 </div>
             </div>
         </div>

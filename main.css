@@ -27,7 +27,7 @@ body {
 }
 
 .player .overlay {
-    padding: 100px 50px;
+    padding: 200px 30px 50px;
     width: 414px;
     max-width: 100%;
     border-radius: 16px;
@@ -75,7 +75,7 @@ body {
 /* ------------EDIT ----------------*/
 
 .song-details {
-    text-align: center;
+    text-align: left;
     margin-bottom: 30px;
 }
 
@@ -89,7 +89,7 @@ body {
 .song-details h3 {
     font-size: 16px;
     font-weight: 500;
-    color: #ffffff;
+    color: #c6c6c8;
     margin-bottom: 5px;
 }
 
