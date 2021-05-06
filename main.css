@@ -143,17 +143,6 @@ body {
     color: #ffffff;
 }
 
-.next-up p {
-    color:#ffffff;
-    text-align: center;
-    font-weight: 700;
-    font-size: 16px;
-}
-
-.next-up p span {
-    font-weight: 400;
-    font-style: italic;
-}
 
 @media (max-width: 414px) {
     .player {

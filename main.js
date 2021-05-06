@@ -6,7 +6,6 @@ window.onload = () => {
 
     const songTitle = document.getElementById('song-title');
     const songArtist = document.getElementById('song-artist');
-    const songNextUp = document.getElementById('song-next-up');
     
     const playBtn = document.getElementById('play-btn');
     const playIcon = document.getElementById('play-icon');
@@ -89,12 +88,6 @@ window.onload = () => {
         songTitle.innerText = song.title;
         songArtist.innerText = song.artist;
         musicPlayer.src =   song.song_path;
-
-        updateNextSong();
-    }
-
-    function updateNextSong() {
-        songNextUp.innerText = `${songs[nextSongIndex].title} by ${songs[nextSongIndex].artist}`;
     }
 
     function TogglePlaySong () {
