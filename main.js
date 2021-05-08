@@ -32,28 +32,28 @@ window.onload = () => {
             title: 'Day One',
             artist: 'Joy Stock',
             song_path:'music/joystock-day-one.mp3',
-            img_path: 'images/day-one.jpeg',
+            img_path: 'https://images.unsplash.com/photo-1533396371595-d46b0aa39bd2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=632&q=80',
             original_index: 0,
         },
         {
             title: 'Shiny New Kicks',
             artist: 'Joy Stock',
             song_path:'music/joystock-shiny-new-kicks.mp3',
-            img_path: 'images/shiny-new-kicks.jpeg',
+            img_path: 'https://images.unsplash.com/photo-1570641963303-92ce4845ed4c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
             original_index: 1,
         },
         {
             title: 'Downtown Delight',
             artist: 'Joy Stock',
             song_path:'music/joystock-downtown-delight.mp3',
-            img_path: 'images/downtown-delight.jpeg',
+            img_path: 'https://images.unsplash.com/photo-1594296378942-913edc8aca9f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
             original_index: 2,
         },
         {
             title: 'Ocean Drift',
             artist: 'Joy Stock',
             song_path:'music/joystock-oceanic-drift.mp3',
-            img_path: 'images/oceanic-drift.jpeg',
+            img_path: 'https://images.unsplash.com/photo-1578875938430-a40a020737c3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
             original_index: 3,
         }
     ];
@@ -260,7 +260,7 @@ window.onload = () => {
 
     function changeVolumeProgressColor () {
         const x = volumeSlider.value;
-        const progressColor = `linear-gradient(90deg, #FE4880 ${x}%, #ffffff ${x}%)`;
+        const progressColor = `linear-gradient(90deg, rgba(255,255,255,.85) ${x}%, rgba(255,255,255,.3) ${x}%)`;
         volumeSlider.style.background = progressColor;
     }
 

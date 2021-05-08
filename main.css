@@ -79,6 +79,13 @@ body {
     margin-bottom: 30px;
 }
 
+
+
+.time {
+    opacity: 0.75;
+}
+
+
 .song-details h2 {
        font-size: 24px;
        font-weight: 600;
@@ -89,7 +96,8 @@ body {
 .song-details h3 {
     font-size: 16px;
     font-weight: 500;
-    color: #c6c6c8;
+    color: #ffffff;
+    opacity: 0.75;
     margin-bottom: 5px;
 }
 
@@ -124,10 +132,13 @@ body {
     appearance: none;
 
     cursor: pointer;
-    color: #c6c6c8;
+    color: #ffffff;
+    opacity: 0.75;
 
     transition: 0.4s;
 }
+
+
 
 .material-icons.md-24 { font-size: 24px; }
 .material-icons.md-36 { font-size: 36px; }
@@ -142,7 +153,7 @@ body {
 
 
 .player-controls .control-btn:hover {
-    color: #ffffff;
+    opacity: 1;
 }
 
 
@@ -156,7 +167,7 @@ body {
 
 
 .progress-container {
-    background-color:#ffffff;
+    background-color:rgba(255,255,255,.5);
     border-radius: 5px;
     cursor: pointer;
     margin:  10px 0;
@@ -165,8 +176,9 @@ body {
     width: 100%;
 }
 
+
 .progress-bar {
-    background-color:#FE4880;
+    background-color: rgba(255,255,255,.85);
     border-radius: 5px;
     height: 100%;
     width: 0%;
@@ -196,7 +208,7 @@ body {
      height: 4px !important;
      -webkit-appearance: none;
      border-radius: 10px;
-     background: linear-gradient(90deg,#FE4880 100%,#ffffff 60%);
+     background: linear-gradient(90deg,rgba(255,255,255,.85)100%, rgba(255,255,255,.5) 60%);
      z-index: 100;
      outline: none;
  }
@@ -206,10 +218,10 @@ body {
      width: 10px;
      height: 10px;
      border-radius: 50%;
-     background-color: #FE4880;
+     background-color: rgba(255,255,255,1);
      cursor: pointer;
-     outline: none;
-     transform: scale(1);
+     outline:  none;
+     transform: scale(1.5);
 
  }
 
