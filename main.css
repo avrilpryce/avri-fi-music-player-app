@@ -19,7 +19,10 @@ body {
 .player {
     background-size: cover;
     width: 414px;
+    height: 736px;
     max-width: 100%;
+    /* min-width: 414px;
+    min-height: 736px; */
     border-radius: 16px;
     box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
     background-color: black;
@@ -29,10 +32,11 @@ body {
 .player .overlay {
     padding: 200px 30px 50px;
     width: 414px;
+    height: 736px;
     max-width: 100%;
     border-radius: 16px;
     background-size: cover;
-    background-image: linear-gradient(360deg, black, transparent);
+    background-image: linear-gradient(360deg, rgba(0, 0, 0, 0.80), transparent);
 }
 
 /* ------------EDIT ----------------*/

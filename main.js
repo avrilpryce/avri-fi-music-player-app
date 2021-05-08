@@ -3,7 +3,7 @@ window.onload = () => {
     // Object References
 
     const playerContainer = document.getElementById('player-container');
-
+    
     const songTitle = document.getElementById('song-title');
     const songArtist = document.getElementById('song-artist');
     
@@ -20,9 +20,11 @@ window.onload = () => {
     const songProgessBar = document.getElementById('song-progress-bar');
     const songProgessContainer = document.getElementById('song-progress-container');
     const volumeSlider = document.getElementById('volume-slider');
-
+    
     const currentTimeEl = document.getElementById('current-time-text');
     const durationTimeEl = document.getElementById('duration-time-text');
+
+    const overlay = document.querySelector('.overlay');
     
     let currentSongIndex;
     let nextSongIndex;
@@ -57,7 +59,7 @@ window.onload = () => {
             original_index: 3,
         }
     ];
-
+    
     // Event Listeners
     playBtn.addEventListener('click', TogglePlaySong);
     nextBtn.addEventListener('click', skipSong);
@@ -69,12 +71,20 @@ window.onload = () => {
     musicPlayer.addEventListener('ended', nextSong);
     volumeSlider.addEventListener('mousemove', changeVolume);
     volumeSlider.addEventListener('input', changeVolumeProgressColor)
-    // musicPlayer.addEventListener('timeupdate',DurTime);
+
+    // Review this block of code
+    $('.app-wrapper').click(function(e) {
+        if(!$(e.target).closest('.main-section').length){
+            toggleOverlay ();
+        }
+    });
+
+    
     
     
     
     InitPlayer();
-
+    
     function InitPlayer () {
         currentSongIndex = 0;
         nextSongIndex = currentSongIndex + 1;
@@ -264,7 +274,14 @@ window.onload = () => {
         volumeSlider.style.background = progressColor;
     }
 
-
+    function toggleOverlay () {
+        console.log('clicked');
+        if (overlay.style.display === "none") {
+            overlay.style.display = "block";
+        } else {
+            overlay.style.display = "none";
+        }
+    }
 
 
 
