@@ -16,6 +16,11 @@ body {
     min-height: 100vh;
 }
 
+#app-content {
+    margin-top: 220px;
+}
+
+
 .player {
     background-size: cover;
     width: 414px;
@@ -47,45 +52,6 @@ body {
     background-image: linear-gradient(360deg, rgba(0, 0, 0, 0.80), transparent);
     position: absolute;
 }
-
-/* ------------EDIT ----------------*/
-.song-img {
-    position: relative;
-    display: block;
-    margin: 0 auto;
-    
-    width: 200px;
-    max-width: 100%;
-    border-radius: 50%;
-
-    margin-bottom: 50px;
-
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    /* background-image: url('images/day-one.jpeg'); */
-
-    transition: 0.4s;
-}
-
-.song-img:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    right: -20px;
-    bottom: -20px;
-    border-radius: 50%;
-}
-.song-img:after {
-    content: '';
-    padding-top: 100%;
-    display: block;
-}
-
-
-/* ------------EDIT ----------------*/
 
 .song-details {
     text-align: left;
