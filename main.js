@@ -6,6 +6,7 @@ window.onload = () => {
     
     const songTitle = document.getElementById('song-title');
     const songArtist = document.getElementById('song-artist');
+    const backgroundVideo = document.getElementById('video');
     
     const playBtn = document.getElementById('play-btn');
     const playIcon = document.getElementById('play-icon');
@@ -34,28 +35,28 @@ window.onload = () => {
             title: 'Day One',
             artist: 'Joy Stock',
             song_path:'music/joystock-day-one.mp3',
-            img_path: 'https://images.unsplash.com/photo-1533396371595-d46b0aa39bd2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=632&q=80',
+            video_path: './videos/test-video.mp4',
             original_index: 0,
         },
         {
             title: 'Shiny New Kicks',
             artist: 'Joy Stock',
             song_path:'music/joystock-shiny-new-kicks.mp3',
-            img_path: 'https://images.unsplash.com/photo-1570641963303-92ce4845ed4c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
+            video_path: './videos/test-video-2.mp4',
             original_index: 1,
         },
         {
             title: 'Downtown Delight',
             artist: 'Joy Stock',
             song_path:'music/joystock-downtown-delight.mp3',
-            img_path: 'https://images.unsplash.com/photo-1594296378942-913edc8aca9f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
+            video_path: './videos/test-video-3.mp4',
             original_index: 2,
         },
         {
             title: 'Ocean Drift',
             artist: 'Joy Stock',
             song_path:'music/joystock-oceanic-drift.mp3',
-            img_path: 'https://images.unsplash.com/photo-1578875938430-a40a020737c3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
+            video_path: './videos/test-video-4.mp4',
             original_index: 3,
         }
     ];
@@ -94,7 +95,7 @@ window.onload = () => {
     function UpdatePlayer() {
         let song = songs[currentSongIndex];
 
-        playerContainer.style = `background-image: url("${song.img_path}")`;
+        backgroundVideo.src = song.video_path;
         songTitle.innerText = song.title;
         songArtist.innerText = song.artist;
         musicPlayer.src =   song.song_path;
