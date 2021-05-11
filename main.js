@@ -20,6 +20,8 @@ window.onload = () => {
     const musicPlayer = document.getElementById('music-player');
     const songProgessBar = document.getElementById('song-progress-bar');
     const songProgessContainer = document.getElementById('song-progress-container');
+
+    const seekSlider = document.getElementById('seek-slider');
     const volumeSlider = document.getElementById('volume-slider');
     
     const currentTimeEl = document.getElementById('current-time-text');
