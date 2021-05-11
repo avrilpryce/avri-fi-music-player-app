@@ -153,15 +153,47 @@ body {
     margin-bottom: 15px;
     height: 4px;
     width: 100%;
+    
 }
 
 
 .progress-bar {
+    border-radius: inherit;
+    height: inherit;
     background-color: rgba(255,255,255,.85);
-    border-radius: 5px;
-    height: 100%;
     width: 0%;
-    transition: width 0.1s linear;
+    transition: width 0.02s linear;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.progress-bar::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,1);
+    cursor: pointer;
+    outline:  none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    left: 100%;
+}
+
+.progress-container:hover .progress-bar::before {
+    opacity: 1;
+}
+
+
+.progress-container:hover .progress-bar {
+    background-color: red;
+}
+
+
+.progress-bar::before.slider:active {
+    transform: scale(2);
 }
 
 
