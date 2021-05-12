@@ -76,7 +76,8 @@ window.onload = () => {
     musicPlayer.addEventListener('ended', nextSong);
     volumeSlider.addEventListener('mousemove', changeVolume);
     volumeSlider.addEventListener('input', changeVolumeProgressColor);
-    volumeOffBtn.addEventListener('click', volumeControl);
+    volumeOffBtn.addEventListener('click', volumeOff);
+    volumeUpBtn.addEventListener('click', volumeUp);
 
     // Review this block of code
     $('.app-wrapper').click(function(e) {
@@ -274,18 +275,18 @@ window.onload = () => {
 
         if (volumeSlider.value > 65) {
             volumeUpBtn.innerHTML = '&#xe050;';
-            volumeUpBtn.id = 'volume-up'
+            volumeUpBtn.id = 'volume-up-btn'
         } else {
             volumeUpBtn.innerHTML = '&#xe04d;';
-            volumeUpBtn.id = 'volume-down'
+            volumeUpBtn.id = 'volume-down-btn'
         }
 
         if (volumeSlider.value > 0) {
             volumeOffBtn.innerHTML = '&#xe04e;';
-            volumeOffBtn.id = 'volume-mute';
+            volumeOffBtn.id = 'volume-mute-btn';
         } else {
             volumeOffBtn.innerHTML = '&#xe04f;';
-            volumeOffBtn.id = 'volume-off';
+            volumeOffBtn.id = 'volume-off-btn';
         }
     }
 
@@ -303,15 +304,18 @@ window.onload = () => {
         }
     }
 
-    function volumeControl () {
-        
-        if (volumeOffBtn.id === 'volume-mute') {
+    function volumeOff () {
             volumeSlider.value = 0;
             changeVolume ();
             changeVolumeProgressColor ();
-        }
-
     };
+
+
+    function volumeUp () {
+        volumeSlider.value = 100;
+        changeVolume ();
+        changeVolumeProgressColor ();
+    }
 
 
 }
