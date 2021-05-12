@@ -306,13 +306,13 @@ window.onload = () => {
     }
 
     function toggleOverlay () {
-        // if (overlay.style.display === "none") {
-        //     overlay.style.display = "block";
-        // } else {
-        //     overlay.style.display = "none";
-        // }
-
-        overlay.classList.toggle('hide');
+        if (overlay.style.display === "none") {
+            overlay.style.display = "block";
+            setTimeout(function() {overlay.classList.toggle('hide')}, 90)             
+        } else {
+            overlay.classList.toggle('hide');     
+            setTimeout(function() {overlay.style.display = "none";}, 90)
+        }
     }
 
     function volumeOff () {
