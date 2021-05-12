@@ -7,6 +7,7 @@ window.onload = () => {
     const songTitle = document.getElementById('song-title');
     const songArtist = document.getElementById('song-artist');
     const backgroundVideo = document.getElementById('video');
+    // const videoContainer = document.getElementById('video-container')
     
     const playBtn = document.getElementById('play-btn');
     const playIcon = document.getElementById('play-icon');
@@ -21,8 +22,9 @@ window.onload = () => {
     const songProgessBar = document.getElementById('song-progress-bar');
     const songProgessContainer = document.getElementById('song-progress-container');
 
-    // const seekSlider = document.getElementById('seek-slider');
     const volumeSlider = document.getElementById('volume-slider');
+    const volumeOffBtn = document.getElementById('volume-off-btn');
+    const volumeUpBtn = document.getElementById('volume-up-btn');
     
     const currentTimeEl = document.getElementById('current-time-text');
     const durationTimeEl = document.getElementById('duration-time-text');
@@ -73,7 +75,8 @@ window.onload = () => {
     songProgessContainer.addEventListener('click', setProgress);
     musicPlayer.addEventListener('ended', nextSong);
     volumeSlider.addEventListener('mousemove', changeVolume);
-    volumeSlider.addEventListener('input', changeVolumeProgressColor)
+    volumeSlider.addEventListener('input', changeVolumeProgressColor);
+    volumeOffBtn.addEventListener('click', volumeControl);
 
     // Review this block of code
     $('.app-wrapper').click(function(e) {
@@ -82,7 +85,6 @@ window.onload = () => {
         }
     });
 
-    
     
     
     
@@ -269,6 +271,22 @@ window.onload = () => {
 
     function changeVolume () {
         musicPlayer.volume = volumeSlider.value / 100;
+
+        if (volumeSlider.value > 65) {
+            volumeUpBtn.innerHTML = '&#xe050;';
+            volumeUpBtn.id = 'volume-up'
+        } else {
+            volumeUpBtn.innerHTML = '&#xe04d;';
+            volumeUpBtn.id = 'volume-down'
+        }
+
+        if (volumeSlider.value > 0) {
+            volumeOffBtn.innerHTML = '&#xe04e;';
+            volumeOffBtn.id = 'volume-mute';
+        } else {
+            volumeOffBtn.innerHTML = '&#xe04f;';
+            volumeOffBtn.id = 'volume-off';
+        }
     }
 
     function changeVolumeProgressColor () {
@@ -278,7 +296,6 @@ window.onload = () => {
     }
 
     function toggleOverlay () {
-        console.log('clicked');
         if (overlay.style.display === "none") {
             overlay.style.display = "block";
         } else {
@@ -286,7 +303,15 @@ window.onload = () => {
         }
     }
 
+    function volumeControl () {
+        
+        if (volumeOffBtn.id === 'volume-mute') {
+            volumeSlider.value = 0;
+            changeVolume ();
+            changeVolumeProgressColor ();
+        }
 
+    };
 
 
 }
