@@ -15,7 +15,14 @@
     <div class="app-wrapper">
         <div id="player-container" class="player">
             <div id="video-container" class="transition-swipe is-active">
-                <video src="videos/test-video.mp4" autoplay muted loop id="video"></video>
+                <div id="video-slide">
+                    <!-- <video src="videos/test-video.mp4" autoplay muted loop id="video"></video> -->
+                    <video src="videos/test-video-4.mp4" autoplay muted loop class="video" id="lastClone"></video>
+                    <video src="videos/test-video-2.mp4" autoplay muted loop class="video"></video>
+                    <video src="videos/test-video-3.mp4" autoplay muted loop class="video"></video>
+                    <video src="videos/test-video-4.mp4" autoplay muted loop class="video"></video>
+                    <video src="videos/test-video-2.mp4" autoplay muted loop class="video" id="firstClone"></video>
+                </div>
             <div class="overlay">
                 <div id="app-content">
                     <audio id="music-player"></audio>

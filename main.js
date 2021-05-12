@@ -28,6 +28,9 @@ window.onload = () => {
     
     const currentTimeEl = document.getElementById('current-time-text');
     const durationTimeEl = document.getElementById('duration-time-text');
+
+    const videoSlide = document.getElementById('video-slide');
+    const videos = document.querySelectorAll('.videos video');
     
     const overlay = document.querySelector('.overlay');
 

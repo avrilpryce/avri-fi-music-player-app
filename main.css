@@ -31,6 +31,21 @@ body {
     background-color: black;
 }
 
+
+
+#video-container {
+    /* overflow: hidden; */
+    border: 5px solid black;
+}
+
+
+#video-slide {
+    display:flex;
+    width: 100%;
+    
+}
+
+
 #video {
     width: 414px;
     height: 736px;
@@ -42,6 +57,12 @@ body {
     transition-property: all ease-out;
     cursor: pointer;
 }
+
+
+
+
+
+
 
 .hide {
     opacity: 0;
@@ -264,16 +285,3 @@ body {
  }
 
 
- /* .transition-swipe {
-     position: relative;
-     top: 0;
-     bottom: 0;
-     left: -100%;
-     width: 100%;
-     transition: 0.5s ease-out;
-     opacity: 0;
- }
-
- .transition-swipe.is-active {
-    left: 0%;
-} */
