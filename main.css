@@ -139,7 +139,7 @@ body {
 
 
 .active-btn {
-    color:#FE4880 !important; 
+    color:#1DB954 !important; 
 }
 
 
@@ -196,7 +196,7 @@ body {
 
 
 .progress-container:hover .progress-bar {
-    background-color: red;
+    background-color: #1DB954;
 }
 
 
