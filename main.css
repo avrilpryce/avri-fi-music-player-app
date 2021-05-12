@@ -105,7 +105,7 @@ body {
 }
 
 
-.player-controls .control-btn {
+.control-btn {
     background: none;
     border: none;
     outline: none;
@@ -119,6 +119,10 @@ body {
 }
 
 
+.control-btn:hover {
+    opacity: 1;
+}
+
 
 .material-icons.md-24 { font-size: 24px; }
 .material-icons.md-36 { font-size: 36px; }
@@ -131,10 +135,6 @@ body {
     color:#FE4880 !important; 
 }
 
-
-.player-controls .control-btn:hover {
-    opacity: 1;
-}
 
 
 @media (max-width: 414px) {
@@ -216,13 +216,6 @@ body {
     margin-bottom: 30px;
 }
 
-.volume-control-icon {
-    background: none;
-    border: none;
-    outline: none;
-    appearance: none;  
-    color: #ffffff;
-}
  .slider {
      width: 80%;
      height: 4px !important;
@@ -231,6 +224,7 @@ body {
      background: linear-gradient(90deg,rgba(255,255,255,.85)100%, rgba(255,255,255,.5) 60%);
      z-index: 100;
      outline: none;
+     cursor: pointer;
  }
 
  .slider::-webkit-slider-thumb {
