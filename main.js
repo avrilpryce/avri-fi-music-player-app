@@ -21,15 +21,18 @@ window.onload = () => {
     const musicPlayer = document.getElementById('music-player');
     const songProgessBar = document.getElementById('song-progress-bar');
     const songProgessContainer = document.getElementById('song-progress-container');
-
+    
     const volumeSlider = document.getElementById('volume-slider');
     const volumeOffBtn = document.getElementById('volume-off-btn');
     const volumeUpBtn = document.getElementById('volume-up-btn');
     
     const currentTimeEl = document.getElementById('current-time-text');
     const durationTimeEl = document.getElementById('duration-time-text');
-
+    
     const overlay = document.querySelector('.overlay');
+
+    const repeatIconHTML = '&#xe040;'
+    const repeatOneIconHTML = '&#xe041;'
 
     let lastVolumePosition
 
@@ -167,6 +170,12 @@ window.onload = () => {
                 nextSongIndex = 0;
             }
         }
+
+        if (loopBtnIcon.title === 'repeat-song') {
+            musicPlayer.loop = false;
+            loopBtnIcon.innerHTML = repeatIconHTML;
+            loopBtnIcon.title = 'repeat-playlist';
+        }
         
         UpdatePlayer();
         TogglePlaySong();
@@ -208,8 +217,6 @@ window.onload = () => {
 
     function repeatAudio () {
 
-        const repeatIconHTML = '&#xe040;'
-        const repeatOneIconHTML = '&#xe041;'
         
         switch (loopBtnIcon.title) {
             case 'repeat-off':
