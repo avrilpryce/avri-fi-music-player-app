@@ -30,7 +30,9 @@ window.onload = () => {
     const durationTimeEl = document.getElementById('duration-time-text');
 
     const overlay = document.querySelector('.overlay');
-    
+
+    let lastVolumePosition
+
     let currentSongIndex;
     let nextSongIndex;
     
@@ -305,9 +307,17 @@ window.onload = () => {
     }
 
     function volumeOff () {
+        if (volumeOffBtn.id === 'volume-mute-btn') {
+            lastVolumePosition = volumeSlider.value;
             volumeSlider.value = 0;
+            changeVolume();
+            changeVolumeProgressColor();
+        } else if (volumeOffBtn.id === 'volume-off-btn') {
+            volumeSlider.value = lastVolumePosition;
             changeVolume ();
             changeVolumeProgressColor ();
+        } 
+
     };
 
 
