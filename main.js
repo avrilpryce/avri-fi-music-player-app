@@ -41,10 +41,10 @@ window.onload = () => {
     
     let songs = [
         {
-            title: 'Day One',
-            artist: 'Joy Stock',
-            song_path:'music/joystock-day-one.mp3',
-            video_path: './videos/test-video.mp4',
+            title: 'Finally',
+            artist: 'CeCe Peniston',
+            song_path:'music/finally.mp3',
+            video_path: 'videos/finally.mp4',
             original_index: 0,
         },
         {
