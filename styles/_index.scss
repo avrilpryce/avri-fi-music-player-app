@@ -1,0 +1,10 @@
+/**
+ * index.scss
+ *
+ * All partials are imported to this index file to be forwarded to main.scss
+ */
+
+@forward 'variables';
+@forward 'typography';
+@forward 'icons';
+@forward 'sliders';
