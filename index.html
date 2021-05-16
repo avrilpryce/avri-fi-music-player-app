@@ -1,54 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Music App</title>
-</head>
-<body>
-    <div class="app-wrapper">
-        <div id="player-container" class="player">
-            <div id="video-container" class="transition-swipe is-active">
-                <video src="videos/test-video.mp4" autoplay muted loop id="video"></video>
-            <div class="overlay">
-                <div id="app-content">
-                    <audio id="music-player"></audio>
-                    <div class="main-section">
-                        <div class="song-details">
-                            <h2 id="song-title">Day One</h2>
-                            <h3 id="song-artist">Joy Stock</h3>
-                        </div>
-                        <div id="song-progress-container"class="progress-container">
-                            <div id="song-progress-bar"class="progress-bar"></div>
-                            <!-- <input type="range" class="slider" id="seek-slider" min="0" max="100" value="100" step="1"> -->
-                        </div>
-                        <div id="current-time">
-                            <span id="current-time-text" class="time">00:00</span>
-                            <span id="duration-time-text"  class="time">00:00</span>
-                        </div>
-                        <div class="player-controls">
-                            <button id="shuffle-btn" class="control-btn"><span class="material-icons md-24">&#xe043;</span></button>
-                            <button id="prev-btn" class="control-btn"><span class="material-icons md-48">&#xe045;</span></button>
-                            <button id="play-btn" class="play-btn"><span id="play-icon" class="material-icons md-72">&#xe1c4;</span></button>
-                            <button id="next-btn" class="control-btn"><span class="material-icons md-48">&#xe044;</span></button>
-                            <button id="loop-btn" class="control-btn"><span id="loop-btn-icon" title="repeat-off" class="material-icons md-24">&#xe040;</span></button>
-                        </div>
-                        <div id="volume-container">
-                            <span id="volume-off-btn" class="material-icons md-24 control-btn opacity-85">&#xe04e;</span>
-                            <input type="range" class="slider" id="volume-slider" min="0" max="100" value="100" step="1">
-                            <span id="volume-up-btn" class="material-icons md-24 control-btn opacity-85">&#xe050;</span>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./styles/main.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>Music App</title>
+    </head>
+    <body>
+        <div class="app-wrapper">
+            <div id="player-container" class="player default-size">
+                <div id="video-container" class="is-active">
+                    <video src="videos/test-video.mp4" autoplay muted loop id="video" class="default-size"></video>
+                <div class="overlay default-size">
+                    <div id="app-content">
+                        <audio id="audio"></audio>
+                        <div class="main-section">
+                            <div class="song-details">
+                                <h2 id="song-title">Day One</h2>
+                                <h3 id="song-artist">Joy Stock</h3>
+                            </div>
+                            <div id="song-progress-container"class="progress-container">
+                                <div id="song-progress-bar"class="progress-bar"></div>
+                            </div>
+                            <div id="current-time">
+                                <span id="current-time-text" class="time">00:00</span>
+                                <span id="duration-time-text"  class="time">00:00</span>
+                            </div>
+                            <div class="player-controls">
+                                <button id="shuffle-btn" class="control-btn"><span class="material-icons md-24">&#xe043;</span></button>
+                                <button id="prev-btn" class="control-btn"><span class="material-icons md-48">&#xe045;</span></button>
+                                <button id="play-btn" class="play-btn"><span id="play-icon" class="material-icons md-72">&#xe1c4;</span></button>
+                                <button id="next-btn" class="control-btn"><span class="material-icons md-48">&#xe044;</span></button>
+                                <button id="loop-btn" class="control-btn"><span id="loop-btn-icon" title="repeat-off" class="material-icons md-24">&#xe040;</span></button>
+                            </div>
+                            <div id="volume-container">
+                                <span id="volume-off-btn" class="material-icons md-24 control-btn opacity-85">&#xe04e;</span>
+                                <input type="range" class="slider" id="volume-slider" min="0" max="100" value="100" step="1">
+                                <span id="volume-up-btn" class="material-icons md-24 control-btn opacity-85">&#xe050;</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script src="main.js"></script>
-    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-</body>
+        <script type="module" src="scripts/main.js"></script>
+        <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </body>
 </html>

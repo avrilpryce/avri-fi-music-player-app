@@ -1,3 +1,12 @@
+/**
+* main.scss
+*
+*  Google Fonts Roboto was used in this project. More info here https://fonts.google.com/
+*/
+
+@use 'index' as * ;
+
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +15,7 @@
 }
 
 body {
-    background-color: #EEE;
+    background-color: $primary-color;
 }
 
 .app-wrapper {
@@ -20,129 +29,17 @@ body {
     margin-top: 220px;
 }
 
+.default-size {
+    width: 414px;
+    height: 736px;
+    max-width: 100%;
+    border-radius: 16px;
+    background-size: cover;
+}
 
 .player {
-    background-size: cover;
-    width: 414px;
-    height: 736px;
-    max-width: 100%;
-    border-radius: 16px;
-    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
     background-color: black;
 }
-
-#video {
-    width: 414px;
-    height: 736px;
-    max-width: 100%;
-    position: absolute;
-    display: block;
-    object-fit: cover;
-    border-radius: 16px;
-    transition-property: all ease-out;
-    cursor: pointer;
-}
-
-.hide {
-    opacity: 0;
-    transition: opacity 0.09s linear;
-}
-
-
-.player .overlay {
-    padding: 200px 30px 50px;
-    width: 414px;
-    height: 736px;
-    max-width: 100%;
-    border-radius: 16px;
-    background-size: cover;
-    background-image: linear-gradient(360deg, rgba(0, 0, 0, 0.80), transparent);
-    position: absolute;
-    transition: opacity 0.09s linear;
-}
-
-.song-details {
-    text-align: left;
-    margin-bottom: 30px;
-}
-
-
-
-.time {
-    opacity: 0.75;
-}
-
-
-.song-details h2 {
-       font-size: 24px;
-       font-weight: 600;
-       color: #ffffff;
-       margin-bottom: 5px;
-}
-
-.song-details h3 {
-    font-size: 16px;
-    font-weight: 500;
-    color: #ffffff;
-    opacity: 0.75;
-    margin-bottom: 5px;
-}
-
-.player-controls {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 30px;
-}
-
-.player-controls .play-btn {
-    background: none;
-    border: none;
-    outline: none;
-    appearance: none;
-
-    cursor: pointer;
-    color: #ffffff;
-
-    transition: 0.4s;
-}
-
-.player-controls .play-btn:hover {
-    transform: scale(1.1);
-}
-
-
-.control-btn {
-    background: none;
-    border: none;
-    outline: none;
-    appearance: none;
-
-    cursor: pointer;
-    color: #ffffff;
-    opacity: 0.75;
-
-    transition: 0.4s;
-}
-
-
-.control-btn:hover {
-    opacity: 1;
-}
-
-
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
-.material-icons.md-60 { font-size: 60px; }
-.material-icons.md-72 { font-size: 72px; }
-
-
-.active-btn {
-    color:#1DB954 !important; 
-}
-
-
 
 @media (max-width: 414px) {
     .player {
@@ -152,128 +49,24 @@ body {
     }
 }
 
-
-.progress-container {
-    background-color:rgba(255,255,255,.3);
-    border-radius: 5px;
-    cursor: pointer;
-    margin:  10px 0;
-    margin-bottom: 15px;
-    height: 4px;
-    width: 100%;
-    
-}
-
-
-.progress-bar {
-    border-radius: inherit;
-    height: inherit;
-    background-color: rgba(255,255,255,.85);
-    width: 0%;
-    transition: width 0.02s linear;
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.progress-bar::before {
-    content: "";
+#video {
     position: absolute;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: rgba(255,255,255,1);
+    display: block;
+    object-fit: cover;
+    transition-property: all ease-out;
     cursor: pointer;
-    outline:  none;
+}
+
+
+.overlay {
+    padding: 200px 30px 50px;
+    background-image: linear-gradient(360deg, rgba(0, 0, 0, 0.80), transparent);
+    position: absolute;
+    transition: opacity 0.09s linear;
+}
+
+
+.hide {
     opacity: 0;
-    transition: opacity 0.2s ease;
-    left: 100%;
+    transition: opacity 0.09s linear;
 }
-
-.progress-container:hover .progress-bar::before {
-    opacity: 1;
-}
-
-
-.progress-container:hover .progress-bar {
-    background-color: #1DB954;
-}
-
-
-.progress-bar::before.slider:active {
-    transform: scale(2);
-}
-
-
-/* #seek-slider {
-    width: 100%;
-    margin-bottom: 10px;
-} */
-
-
-
-#volume-container{
-    position: relative;
-    width: 100%;
-    height: 15px;
-    z-index: 3;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
- .slider {
-     width: 80%;
-     height: 4px !important;
-     -webkit-appearance: none;
-     border-radius: 10px;
-     background: linear-gradient(90deg,rgba(255,255,255,.85)100%, rgba(255,255,255,.5) 60%);
-     z-index: 100;
-     outline: none;
-     cursor: pointer;
- }
-
- .slider::-webkit-slider-thumb {
-     -webkit-appearance: none;
-     width: 10px;
-     height: 10px;
-     border-radius: 50%;
-     background-color: rgba(255,255,255,1);
-     cursor: pointer;
-     outline:  none;
-     transform: scale(1.5);
-
- }
-
- .slider:active::-webkit-slider-thumb {
-     transform: scale(1.5);
- }
-
-
- #current-time {
-    justify-content: space-between;
-    display: flex;
-    margin-bottom: 20px;
- }
-
- #current-time span {
-    font-size: 14px;
-    font-weight: 500;
-    color: #ffffff;
- }
-
-
- /* .transition-swipe {
-     position: relative;
-     top: 0;
-     bottom: 0;
-     left: -100%;
-     width: 100%;
-     transition: 0.5s ease-out;
-     opacity: 0;
- }
-
- .transition-swipe.is-active {
-    left: 0%;
-} */
