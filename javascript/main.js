@@ -76,7 +76,7 @@ window.onload = () => {
     ];
     
     // Event Listeners
-    playBtn.addEventListener('click', TogglePlaySong);
+    playBtn.addEventListener('click', togglePlayer);
     nextBtn.addEventListener('click', skipSong);
     prevBtn.addEventListener('click', () => skipSong(false));
     shuffleBtn.addEventListener('click', shuffleSong);
@@ -96,22 +96,20 @@ window.onload = () => {
     });
 
     
-    
-    
-    InitPlayer();
+    initPlayer();
     
     /**
     * player
     *
     */
 
-    function InitPlayer () {
+    function initPlayer () {
         currentSongIndex = 0;
         nextSongIndex = currentSongIndex + 1;
-        UpdatePlayer();
+        updatePlayerHelper();
     }
 
-    function UpdatePlayer() {
+    function updatePlayerHelper() {
         let song = songs[currentSongIndex];
         backgroundVideo.src = song.video_path;
         songTitle.innerText = song.title;
@@ -119,7 +117,7 @@ window.onload = () => {
         musicPlayer.src =   song.song_path;
     }
 
-    function TogglePlaySong () {
+    function togglePlayer () {
         if (musicPlayer.paused) {
             musicPlayer.play();
             playIcon.innerHTML = '&#xe1a2;'
@@ -129,6 +127,12 @@ window.onload = () => {
         }
     }
 
+
+    function updateToggleHelper () {
+        updatePlayerHelper();
+        togglePlayer();
+    }
+    
     function nextSong (next = true) {
         if (next) {
             currentSongIndex++;
@@ -152,8 +156,7 @@ window.onload = () => {
             }
         }
         
-        UpdatePlayer();
-        TogglePlaySong();
+        updateToggleHelper();
     }
 
     function skipSong (next = true) {
@@ -185,8 +188,7 @@ window.onload = () => {
             loopBtnIcon.title = 'repeat-playlist';
         }
         
-        UpdatePlayer();
-        TogglePlaySong();
+        updateToggleHelper();
     }
 
     /**
