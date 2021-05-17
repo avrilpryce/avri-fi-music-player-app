@@ -3,6 +3,23 @@
 *
 */
 
+import {songs} from './modules/songs.js';
+import {shuffleSong} from './modules/shuffle.js';
+import {repeatAudio} from './modules/repeat.js';
+
+/**
+ * 
+ * currentSongIndex - used in skipSong
+ * nextSongIndex - used in skipSong
+ * songs - skipSong and Shuffle Song
+ * backgroundVideo
+ * songTitle
+ * songArtist
+ * audio - everything
+ * playIcon
+ * loopBtnIcon - skipSong and repeatAudio
+ */
+
 window.onload = () => {
 
     // Object References
@@ -19,7 +36,7 @@ window.onload = () => {
     const loopBtn = document.getElementById('loop-btn');
     const loopBtnIcon = document.getElementById('loop-btn-icon');
     
-    const musicPlayer = document.getElementById('audio');
+    const audio = document.getElementById('audio');
     const songProgessBar = document.getElementById('song-progress-bar');
     const songProgessContainer = document.getElementById('song-progress-container');
     
@@ -37,53 +54,17 @@ window.onload = () => {
 
     let lastVolumePosition, currentSongIndex, nextSongIndex;
     
-    let songs = [
-        {
-            title: 'Finally',
-            artist: 'CeCe Peniston',
-            song_path:'music/finally.mp3',
-            video_path: 'videos/finally.mp4',
-            original_index: 0,
-        },
-        {
-            title: 'Rain On Me',
-            artist: 'Lady Gaga & Ariana Grande',
-            song_path:'music/rain-on-me.mp3',
-            video_path: 'videos/rain-on-me.mp4',
-            original_index: 1,
-        },
-        {
-            title: 'Run the World (Girls)',
-            artist: 'Beyoncé',
-            song_path:'music/run-the-world.mp3',
-            video_path: 'videos/run-the-world-girls.mp4',
-            original_index: 2,
-        },
-        {
-            title: 'Up',
-            artist: 'Cardi B',
-            song_path:'music/up.mp3',
-            video_path: 'videos/up.mp4',
-            original_index: 3,
-        },
-        {
-            title: 'Level Up (Remix)',
-            artist: 'Ciara feat. Missy Elliott & Fatman Scoop',
-            song_path:'music/level-up-remix.mp3',
-            video_path: 'videos/level-up.mp4',
-            original_index: 4,
-        }
-    ];
+
     
     // Event Listeners
     playBtn.addEventListener('click', togglePlayer);
     nextBtn.addEventListener('click', skipSong);
     prevBtn.addEventListener('click', () => skipSong(false));
-    shuffleBtn.addEventListener('click', shuffleSong);
-    loopBtn.addEventListener('click', repeatAudio)
-    musicPlayer.addEventListener('timeupdate', updateTime);
+    shuffleBtn.addEventListener('click',() => shuffleSong(shuffleBtn, songs));
+    loopBtn.addEventListener('click', () => repeatAudio(loopBtnIcon, loopBtn, audio, repeatOneIconHTML, repeatIconHTML));
+    audio.addEventListener('timeupdate', updateTime);
     songProgessContainer.addEventListener('click', setProgress);
-    musicPlayer.addEventListener('ended', nextSong);
+    audio.addEventListener('ended', nextSong);
     volumeSlider.addEventListener('mousemove', changeVolume);
     volumeSlider.addEventListener('input', changeVolumeProgressColor);
     volumeOffBtn.addEventListener('click', volumeOff);
@@ -94,40 +75,40 @@ window.onload = () => {
             toggleOverlay ();
         }
     });
-
+    
     
     initPlayer();
     
     /**
-    * player
-    *
-    */
-
+     * player
+     *
+     */
+    
     function initPlayer () {
         currentSongIndex = 0;
         nextSongIndex = currentSongIndex + 1;
         updatePlayerHelper();
     }
-
+    
     function updatePlayerHelper() {
         let song = songs[currentSongIndex];
         backgroundVideo.src = song.video_path;
         songTitle.innerText = song.title;
         songArtist.innerText = song.artist;
-        musicPlayer.src =   song.song_path;
+        audio.src =   song.song_path;
     }
-
+    
     function togglePlayer () {
-        if (musicPlayer.paused) {
-            musicPlayer.play();
+        if (audio.paused) {
+            audio.play();
             playIcon.innerHTML = '&#xe1a2;'
         } else {
-            musicPlayer.pause();
+            audio.pause();
             playIcon.innerHTML = '&#xe1c4;'
         }
     }
-
-
+    
+    
     function updateToggleHelper () {
         updatePlayerHelper();
         togglePlayer();
@@ -137,19 +118,19 @@ window.onload = () => {
         if (next) {
             currentSongIndex++;
             nextSongIndex = currentSongIndex + 1;
-
+            
             if (currentSongIndex > songs.length - 1 &&  loopBtnIcon.title === 'repeat-playlist') {
                 currentSongIndex = 0;
                 nextSongIndex = currentSongIndex + 1;
             }
-
+            
             if (nextSongIndex > songs.length - 1  &&  loopBtnIcon.title === 'repeat-playlist') {
                 nextSongIndex = 0;
             }
         } else {
             currentSongIndex--;
             nextSongIndex = currentSongIndex + 1;
-
+            
             if (currentSongIndex < 0) {
                 currentSongIndex = songs.length - 1;
                 nextSongIndex = 0;
@@ -158,32 +139,32 @@ window.onload = () => {
         
         updateToggleHelper();
     }
-
+    
     function skipSong (next = true) {
         if (next) {
             currentSongIndex++;
             nextSongIndex = currentSongIndex + 1;
-
+ 
             if (currentSongIndex > songs.length - 1) {
                 currentSongIndex = 0;
                 nextSongIndex = currentSongIndex + 1;
             }
-
+ 
             if (nextSongIndex > songs.length - 1) {
                 nextSongIndex = 0;
             }
         } else {
             currentSongIndex--;
             nextSongIndex = currentSongIndex + 1;
-
+ 
             if (currentSongIndex < 0) {
                 currentSongIndex = songs.length - 1;
                 nextSongIndex = 0;
             }
         }
-
+ 
         if (loopBtnIcon.title === 'repeat-song') {
-            musicPlayer.loop = false;
+            audio.loop = false;
             loopBtnIcon.innerHTML = repeatIconHTML;
             loopBtnIcon.title = 'repeat-playlist';
         }
@@ -191,59 +172,9 @@ window.onload = () => {
         updateToggleHelper();
     }
 
-    /**
-    * Shuffle
-    *
-    */
-
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            let j = Math.floor(Math.random() * (i + 1));
-            let temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-        }
-    }
 
 
-    function shuffleSong () {
-        shuffleBtn.classList.toggle('active-btn');
-        
-        if (shuffleBtn.classList.contains('active-btn') === true) {
-            shuffleArray(songs);
-        } else {
-            songs.sort(function (a, b) {
-                return a.original_index - b.original_index;
-            });
-        }
-    }
-
-
-    /**
-    * Repeat
-    *
-    */
-
-    function repeatAudio () {
-        switch (loopBtnIcon.title) {
-            case 'repeat-off':
-                loopBtn.classList.add('active-btn');
-                loopBtnIcon.title = 'repeat-playlist';
-                break;
-            case 'repeat-playlist':
-                musicPlayer.loop = true;
-                loopBtnIcon.innerHTML = repeatOneIconHTML;
-                loopBtnIcon.title = 'repeat-song';
-                break;
-            case 'repeat-song':
-                musicPlayer.loop = false;
-                loopBtn.classList.remove('active-btn');
-                loopBtnIcon.innerHTML = repeatIconHTML;
-                loopBtnIcon.title = 'repeat-off';
-                break;
-        }
-    }
-
+    
     /**
     * Time
     *
@@ -278,9 +209,9 @@ window.onload = () => {
     function setProgress(event) {
         const width = this.clientWidth;
         const clickX = event.offsetX;
-        const duration = musicPlayer.duration;
+        const duration = audio.duration;
       
-        musicPlayer.currentTime = (clickX / width) * duration;
+        audio.currentTime = (clickX / width) * duration;
     }
 
     /**
@@ -289,7 +220,7 @@ window.onload = () => {
     */
 
     function changeVolume () {
-        musicPlayer.volume = volumeSlider.value / 100;
+        audio.volume = volumeSlider.value / 100;
 
         if (volumeSlider.value > 65) {
             volumeUpBtn.innerHTML = '&#xe050;';
