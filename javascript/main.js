@@ -6,6 +6,7 @@
 import {songs} from './modules/songs.js';
 import {shuffleSong} from './modules/shuffle.js';
 import {repeatAudio} from './modules/repeat.js';
+import {updateTime, setProgress} from './modules/time.js';
 
 /**
  * 
@@ -37,15 +38,13 @@ window.onload = () => {
     const loopBtnIcon = document.getElementById('loop-btn-icon');
     
     const audio = document.getElementById('audio');
-    const songProgessBar = document.getElementById('song-progress-bar');
     const songProgessContainer = document.getElementById('song-progress-container');
     
     const volumeSlider = document.getElementById('volume-slider');
     const volumeOffBtn = document.getElementById('volume-off-btn');
     const volumeUpBtn = document.getElementById('volume-up-btn');
     
-    const currentTimeEl = document.getElementById('current-time-text');
-    const durationTimeEl = document.getElementById('duration-time-text');
+
     
     const overlay = document.querySelector('.overlay');
 
@@ -181,38 +180,38 @@ window.onload = () => {
     */
 
 
-    function updateTime(event) {
-        const { duration, currentTime } = event.srcElement;
+    // function updateTime(event) {
+    //     const { duration, currentTime } = event.srcElement;
 
-        if(duration) {
-            const progressPercent = (currentTime / duration) * 100;
-            songProgessBar.style.width = `${progressPercent}%`;
+    //     if(duration) {
+    //         const progressPercent = (currentTime / duration) * 100;
+    //         songProgessBar.style.width = `${progressPercent}%`;
 
-            let currentTimeMins = Math.floor(currentTime / 60);
-            let currentTimeSecs = Math.floor(currentTime - currentTimeMins * 60);
-            let durationTimeMins = Math.floor(duration / 60);
-            let durationTimeSecs = Math.floor(duration - durationTimeMins * 60);
+    //         let currentTimeMins = Math.floor(currentTime / 60);
+    //         let currentTimeSecs = Math.floor(currentTime - currentTimeMins * 60);
+    //         let durationTimeMins = Math.floor(duration / 60);
+    //         let durationTimeSecs = Math.floor(duration - durationTimeMins * 60);
 
-            if(currentTimeSecs < 10){ currentTimeSecs = '0' + currentTimeSecs }
-            if(durationTimeSecs < 10){ durationTimeSecs = '0' + durationTimeSecs }
+    //         if(currentTimeSecs < 10){ currentTimeSecs = '0' + currentTimeSecs }
+    //         if(durationTimeSecs < 10){ durationTimeSecs = '0' + durationTimeSecs }
 
-            currentTimeEl.innerHTML = currentTimeMins + ':' + currentTimeSecs;
-            durationTimeEl.innerHTML = durationTimeMins + ':' + durationTimeSecs;
-        } else {
-            currentTimeEl.innerHTML = '0:00'
-            durationTimeEl.innerHTML = '0:00'
-        }
+    //         currentTimeEl.innerHTML = currentTimeMins + ':' + currentTimeSecs;
+    //         durationTimeEl.innerHTML = durationTimeMins + ':' + durationTimeSecs;
+    //     } else {
+    //         currentTimeEl.innerHTML = '0:00'
+    //         durationTimeEl.innerHTML = '0:00'
+    //     }
 
 
-    }
+    // }
 
-    function setProgress(event) {
-        const width = this.clientWidth;
-        const clickX = event.offsetX;
-        const duration = audio.duration;
+    // function setProgress(event) {
+    //     const width = this.clientWidth;
+    //     const clickX = event.offsetX;
+    //     const duration = audio.duration;
       
-        audio.currentTime = (clickX / width) * duration;
-    }
+    //     audio.currentTime = (clickX / width) * duration;
+    // }
 
     /**
     * Volume

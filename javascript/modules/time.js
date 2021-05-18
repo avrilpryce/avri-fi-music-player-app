@@ -1,8 +1,13 @@
 
-
-
+/**
+ * 
+ * Time
+ */
 
 function updateTime(event) {
+    const songProgessBar = document.getElementById('song-progress-bar');
+    const currentTimeEl = document.getElementById('current-time-text');
+    const durationTimeEl = document.getElementById('duration-time-text');
     const { duration, currentTime } = event.srcElement;
 
     if(duration) {
@@ -28,9 +33,13 @@ function updateTime(event) {
 }
 
 function setProgress(event) {
+    const audio = document.getElementById('audio');
     const width = this.clientWidth;
     const clickX = event.offsetX;
     const duration = audio.duration;
   
     audio.currentTime = (clickX / width) * duration;
 }
+
+
+export {updateTime, setProgress};
