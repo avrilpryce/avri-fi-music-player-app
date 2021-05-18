@@ -7,6 +7,7 @@ import {songs} from './modules/songs.js';
 import {shuffleSong} from './modules/shuffle.js';
 import {repeatAudio} from './modules/repeat.js';
 import {updateTime, setProgress} from './modules/time.js';
+import {changeVolume, changeVolumeProgressColor, volumeOff, volumeUp} from './modules/volume.js';
 
 /**
  * 
@@ -51,7 +52,7 @@ window.onload = () => {
     const repeatIconHTML = '&#xe040;'
     const repeatOneIconHTML = '&#xe041;'
 
-    let lastVolumePosition, currentSongIndex, nextSongIndex;
+    let currentSongIndex, nextSongIndex;
     
 
     
@@ -171,100 +172,6 @@ window.onload = () => {
         updateToggleHelper();
     }
 
-
-
-    
-    /**
-    * Time
-    *
-    */
-
-
-    // function updateTime(event) {
-    //     const { duration, currentTime } = event.srcElement;
-
-    //     if(duration) {
-    //         const progressPercent = (currentTime / duration) * 100;
-    //         songProgessBar.style.width = `${progressPercent}%`;
-
-    //         let currentTimeMins = Math.floor(currentTime / 60);
-    //         let currentTimeSecs = Math.floor(currentTime - currentTimeMins * 60);
-    //         let durationTimeMins = Math.floor(duration / 60);
-    //         let durationTimeSecs = Math.floor(duration - durationTimeMins * 60);
-
-    //         if(currentTimeSecs < 10){ currentTimeSecs = '0' + currentTimeSecs }
-    //         if(durationTimeSecs < 10){ durationTimeSecs = '0' + durationTimeSecs }
-
-    //         currentTimeEl.innerHTML = currentTimeMins + ':' + currentTimeSecs;
-    //         durationTimeEl.innerHTML = durationTimeMins + ':' + durationTimeSecs;
-    //     } else {
-    //         currentTimeEl.innerHTML = '0:00'
-    //         durationTimeEl.innerHTML = '0:00'
-    //     }
-
-
-    // }
-
-    // function setProgress(event) {
-    //     const width = this.clientWidth;
-    //     const clickX = event.offsetX;
-    //     const duration = audio.duration;
-      
-    //     audio.currentTime = (clickX / width) * duration;
-    // }
-
-    /**
-    * Volume
-    *
-    */
-
-    function changeVolume () {
-        audio.volume = volumeSlider.value / 100;
-
-        if (volumeSlider.value > 65) {
-            volumeUpBtn.innerHTML = '&#xe050;';
-            volumeUpBtn.id = 'volume-up-btn'
-        } else {
-            volumeUpBtn.innerHTML = '&#xe04d;';
-            volumeUpBtn.id = 'volume-down-btn'
-        }
-
-        if (volumeSlider.value > 0) {
-            volumeOffBtn.innerHTML = '&#xe04e;';
-            volumeOffBtn.id = 'volume-mute-btn';
-        } else {
-            volumeOffBtn.innerHTML = '&#xe04f;';
-            volumeOffBtn.id = 'volume-off-btn';
-        }
-    }
-
-    function changeVolumeProgressColor () {
-        const x = volumeSlider.value;
-        const progressColor = `linear-gradient(90deg, rgba(255,255,255,.85) ${x}%, rgba(255,255,255,.3) ${x}%)`;
-        volumeSlider.style.background = progressColor;
-    }
-
-    
-    function volumeOff () {
-        if (volumeOffBtn.id === 'volume-mute-btn') {
-            lastVolumePosition = volumeSlider.value;
-            volumeSlider.value = 0;
-            changeVolume();
-            changeVolumeProgressColor();
-        } else if (volumeOffBtn.id === 'volume-off-btn') {
-            volumeSlider.value = lastVolumePosition;
-            changeVolume ();
-            changeVolumeProgressColor ();
-        } 
-        
-    };
-    
-    
-    function volumeUp () {
-        volumeSlider.value = 100;
-        changeVolume ();
-        changeVolumeProgressColor ();
-    }
 
     /**
     * Overlay
