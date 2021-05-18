@@ -1,5 +1,15 @@
+/**
+* repeat.js
+*
+*/
 
-function repeatAudio (loopBtnIcon, loopBtn, audio, repeatOneIconHTML, repeatIconHTML) {
+function repeatAudio () {
+    const loopBtnIcon = document.getElementById('loop-btn-icon');
+    const loopBtn = document.getElementById('loop-btn');
+    const audio = document.getElementById('audio');
+    const repeatIconHTML = '&#xe040;'
+    const repeatOneIconHTML = '&#xe041;'
+
     switch (loopBtnIcon.title) {
         case 'repeat-off':
             loopBtn.classList.add('active-btn');
