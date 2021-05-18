@@ -27,5 +27,4 @@ function shuffleSong (shuffleBtn, songs) {
     }
 }
 
-
 export {shuffleSong};
