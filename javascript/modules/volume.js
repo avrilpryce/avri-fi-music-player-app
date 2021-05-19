@@ -1,7 +1,13 @@
 
 /**
  * volume.js
- *
+ * 
+ * Index
+ * 1. changeVolume
+ * 2. changeVolumeProgressColor
+ * 3. volumeOff
+ * 4. volumeUp
+ * 
  */
 
 const volumeSlider = document.getElementById('volume-slider');
@@ -10,6 +16,7 @@ const volumeUpBtn = document.getElementById('volume-up-btn');
 
 let lastVolumePosition;
 
+// * 1. changeVolume
 function changeVolume () {
     const audio = document.getElementById('audio');
 
@@ -32,6 +39,8 @@ function changeVolume () {
     }
 }
 
+
+// * 2. changeVolumeProgressColor
 function changeVolumeProgressColor () {
     const x = volumeSlider.value;
     const progressColor = `linear-gradient(90deg, rgba(255,255,255,.85) ${x}%, rgba(255,255,255,.3) ${x}%)`;
@@ -39,6 +48,7 @@ function changeVolumeProgressColor () {
 }
 
 
+// * 3. volumeOff
 function volumeOff () {
     if (volumeOffBtn.id === 'volume-mute-btn') {
         lastVolumePosition = volumeSlider.value;
@@ -51,9 +61,10 @@ function volumeOff () {
         changeVolumeProgressColor();
     } 
     
-};
+}
 
 
+// * 4. volumeUp
 function volumeUp () {
     volumeSlider.value = 100;
     changeVolume();
