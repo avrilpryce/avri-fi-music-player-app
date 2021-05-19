@@ -1,6 +1,13 @@
 /**
 * player.js
-*
+* 
+ * Index
+ * 1. updatePlayerHelper
+ * 2. initPlayer
+ * 3. togglePlayer
+ * 4. nextSong
+ * 5. skipSong
+ * 
 */
 
 import {songs} from './songs.js'
@@ -13,7 +20,7 @@ const playIcon = document.getElementById('play-icon');
 const loopBtnIcon = document.getElementById('loop-btn-icon');
 let currentSongIndex, nextSongIndex;
 
-
+// * 1. updatePlayerHelper
 function updatePlayerHelper() {
     let song = songs[currentSongIndex];
     backgroundVideo.src = song.video_path;
@@ -22,14 +29,14 @@ function updatePlayerHelper() {
     audio.src = song.song_path;
 }
 
-
+// * 2. initPlayer
 function initPlayer () {
     currentSongIndex = 0;
     nextSongIndex = currentSongIndex + 1;
     updatePlayerHelper();
 }
 
-
+// * 3. togglePlayer
 function togglePlayer () {
     if (audio.paused) {
         audio.play();
@@ -40,7 +47,7 @@ function togglePlayer () {
     }
 }
 
-
+// * 4. nextSong
 function nextSong (next = true) {
     if (next) {
         currentSongIndex++;
@@ -68,6 +75,7 @@ function nextSong (next = true) {
     togglePlayer();
 }
 
+// * 5. skipSong
 function skipSong (next = true) {
     if (next) {
         currentSongIndex++;

@@ -41,6 +41,7 @@ window.onload = () => {
     volumeOffBtn.addEventListener('click', volumeOff);
     volumeUpBtn.addEventListener('click', volumeUp);
     
+    // Overlay jQuery to toggle display of video
     $('.app-wrapper').click(function(e) {
         if(!$(e.target).closest('.main-section').length){
             toggleOverlay ();
@@ -48,6 +49,5 @@ window.onload = () => {
     });
     
     initPlayer();
-    
     
 }
