@@ -1,9 +1,11 @@
-# 🎵 Avri-fi Music Player 🎧 
+
+<h1 align="center">🎵 Avri-fi Music Player 🎧</h1>
 
 <p align="center">
     <img src="./demo-gif-lg.gif?raw=true" width="700px" >
 </p>
 
+## Intro
 
 Being an avid music & entertainment tech-lover, I wanted to create a little something of my own to get a better understanding of how the apps I use and love every day actually work. 
 
