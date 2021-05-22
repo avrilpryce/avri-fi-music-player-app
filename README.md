@@ -21,9 +21,9 @@ For this project, I took it back to basics to solidify my knowledge of Vanilla J
 - Change volume
 - Toggle on and off music controls to see background video
 
-## **Features I'd like to add:**
+## Features I'd Like to Add
 
-- Swipe next transition to background video
+- Swipe next transition of background video
 - Display playlist title
 - Artist name & image displayed in background image view when controls are hidden
 - Spotify API integration
