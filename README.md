@@ -1,4 +1,4 @@
-# 🎵 🎧 Avri-fi Music Player App
+# 🎵 🎧 Avri-fi Music Player
 
 <p align="center">
     <img src="./demo-gif-lg.gif?raw=true" width="700px" >
