@@ -1,6 +1,6 @@
 # 🎵 🎧 Avri-fi Music Player App
 
-[demo](https://res.cloudinary.com/haus-of-mon/image/upload/v1621680500/Music%20Player%20App/Gifs/music-app-demo_odbqrp.gif)
+![demo](https://res.cloudinary.com/haus-of-mon/image/upload/v1621683398/Music%20Player%20App/Gifs/music-app-demo_znjahi.gif)
 
 Being an avid music & entertainment tech-lover, I wanted to create a little something of my own to get a better understanding of how the apps I use and love every day actually work. 
 
