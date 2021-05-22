@@ -14,7 +14,7 @@ For this project, I took it back to basics to solidify my knowledge of Vanilla J
 
 ## Features
 
-- Play & pause song
+- Play & pause
 - Seek time in song
 - Skip to next or previous song
 - Shuffle playlist
