@@ -1,7 +1,8 @@
 # 🎵 🎧 Avri-fi Music Player App
 
-
-<img src="./demo-gif-lg.gif?raw=true" width="600px" align="right">
+<p align="center">
+    <img src="./demo-gif-lg.gif?raw=true" width="600px" >
+</p>
 
 
 Being an avid music & entertainment tech-lover, I wanted to create a little something of my own to get a better understanding of how the apps I use and love every day actually work. 
