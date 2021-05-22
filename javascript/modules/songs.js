@@ -10,7 +10,7 @@ let songs = [
         title: 'Rain On Me',
         artist: 'Lady Gaga & Ariana Grande',
         song_path:'https://res.cloudinary.com/haus-of-mon/video/upload/v1621677545/Music%20Player%20App/Audio/rain-on-me_kq0dem.mp3',
-        video_path: 'https://res.cloudinary.com/haus-of-mon/video/upload/v1621676541/Music%20Player%20App/rain-on-me_lixlty.mov',
+        video_path: 'https://res.cloudinary.com/haus-of-mon/video/upload/v1621676541/Music%20Player%20App/Videos/rain-on-me_lixlty.mov',
         original_index: 1,
     },
     {
