@@ -31,7 +31,7 @@ let songs = [
         title: 'Level Up (Remix)',
         artist: 'Ciara feat. Missy Elliott & Fatman Scoop',
         song_path:'https://res.cloudinary.com/haus-of-mon/video/upload/v1621677546/Music%20Player%20App/Audio/level-up-remix_e8zs5r.m4a',
-        video_path: 'https://res.cloudinary.com/haus-of-mon/video/upload/v1621675413/Music%20Player%20App/level-up_drud6k.mp4',
+        video_path: 'https://res.cloudinary.com/haus-of-mon/video/upload/v1621675413/Music%20Player%20App/Videos/level-up_drud6k.mp4',
         original_index: 4,
     }
 ];
