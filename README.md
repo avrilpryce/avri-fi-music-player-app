@@ -13,7 +13,7 @@ Avri-fi is a simple music app with my top five favorite tracks that gets me moti
 
 For this project, I took it back to basics to solidify my knowledge of Vanilla Javascript, HTML, and CSS/SCSS. A sprinkle of jQuery is also used to toggle on/off the player controls so you can see the backing video.
 
-[See it live here](https://brave-yonath-4fc8da.netlify.app/)
+[See it live here](https://avri-fi-music-player.netlify.app)
 
 ## Features
 
