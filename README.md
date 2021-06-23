@@ -9,7 +9,7 @@
 
 Being an avid music & entertainment tech-lover, I wanted to create a little something of my own to get a better understanding of how the apps I use and love every day actually work. 
 
-Avri-fi is a simple music app with my top five favorite tracks that gets me motivated to slay the day. The UI is inspired by the Spotify and Apple mobile music streaming interfaces. 
+Avri-fi is a simple music app with my top five favorite tracks that gets me motivated to slay the day. The UI is inspired by the Spotify mobile app. 
 
 For this project, I took it back to basics to solidify my knowledge of Vanilla Javascript, HTML, and CSS/SCSS. A sprinkle of jQuery is also used to toggle on/off the player controls so you can see the backing video.
 
